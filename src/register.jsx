@@ -2,29 +2,47 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
 export const Register=()=>{
-const navigate=useNavigate()
-const[mail,setMail]=useState('')
-const[pass,setPass]=useState('')
-const [confirmPass,setConfirmPass]=useState('')
-
-
-let isValid=false
-const validate=(e)=>{
-    const a=mail.split('')
-if(a.filter((v)=>v=='@')!=[]&&pass.length>=6 && pass==confirmPass){
-    isValid=true
-}
-    e.preventDefault()
-    if(mail&&pass&&isValid==true){
-
-        localStorage.setItem(pass,JSON.stringify({mail,pass}))
+    const navigate = useNavigate();
+    const [mail, setMail] = useState("");
+    const [pass, setPass] = useState("");
+    const [confirmPass, setConfirmPass] = useState("");
+  
+    const validate = async (e) => {
+      e.preventDefault();
+  
+      const isValid = mail.includes('@') && pass.length > 6 && pass === confirmPass;
+      if (!isValid) {
+        alert('Enter valid email or password');
+        return;
+      }
+  
+      try {
         
-        navigate('/signIn')
+        
+        const response = await fetch(`http://localhost:8000/users?email=${mail}`);
+        const users = await response.json();
+        if (users.length > 0) {
+          alert("User already exists");
+          navigate("/signIn");
+          return;
+        }
+  
+        const newUser = { email: mail, password: pass };
+        await fetch("http://localhost:8000/users", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newUser),
+        });
+  
+        alert("Registration successful");
+        navigate("/signIn");
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Failed to register. Please try again.");
+      }
     }
-    else{
-        alert('enter valid mail-id or password')
-    }
-}
 
     return (
         <div className="d-flex justify-content-center align-items-center vh-100">

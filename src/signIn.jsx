@@ -1,33 +1,40 @@
-import React, { useState,useEffect } from 'react';
-import { Link,useNavigate } from 'react-router-dom';
+import React, { createContext, useState } from 'react';
+import { json, Link,useNavigate } from 'react-router-dom';
 
+
+export const User=createContext()
 export const Signin = () => {
 const[mail,setMail]=useState('')
 const[passs,setPass]=useState('')
 
 
-const navigate=useNavigate()
+const navigate = useNavigate();
 
+let isValid = false;
 
-        let isValid=false
-const handleSignIn=(e)=>{
-   
-    
-
-
-if(passs==localStorage.getItem(passs.pass)&&mail==localStorage.getItem(passs.mail)){
-    isValid=true
-}
+const handleSignIn = async (e) => {
     e.preventDefault()
-    if(isValid==true){
-        navigate('/')
+    try{
+const Valid=await fetch(`http://localhost:8000/users`)
+const users=await Valid.json()
+const user=users.find(user=>user.email===mail&&user.password===passs)
+if(user){   
+    localStorage.setItem('user',user.id) 
+    navigate('/')
+}
+else{
+    alert('please register or enter valid details')
+}
     }
-    else{
-        alert('enter valid mail-id or password')
+    catch{
+        console.error("Error:", error);
+        alert("Failed to login. Please try again.");
     }
+
 }
 
     return (
+
         <div className="d-flex justify-content-center align-items-center vh-100">
             <div className="card p-4" style={{ maxWidth: "400px", width: "100%" }}>
                 <h3 className="card-title text-center mb-4">Login</h3>
@@ -61,5 +68,6 @@ if(passs==localStorage.getItem(passs.pass)&&mail==localStorage.getItem(passs.mai
                 </form>
             </div>
         </div>
-    );
-};
+       
+    )
+}
