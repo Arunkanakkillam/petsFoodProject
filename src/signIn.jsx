@@ -1,10 +1,31 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState,useEffect } from 'react';
+import { Link,useNavigate } from 'react-router-dom';
+
 export const Signin = () => {
 const[mail,setMail]=useState('')
-const[pass,setPass]=useState('')
-const[isAuthenticated,setIsAuthenticated]=useState('false')
+const[passs,setPass]=useState('')
 
+
+const navigate=useNavigate()
+
+
+        let isValid=false
+const handleSignIn=(e)=>{
+   
+    
+
+
+if(passs==localStorage.getItem(passs.pass)&&mail==localStorage.getItem(passs.mail)){
+    isValid=true
+}
+    e.preventDefault()
+    if(isValid==true){
+        navigate('/')
+    }
+    else{
+        alert('enter valid mail-id or password')
+    }
+}
 
     return (
         <div className="d-flex justify-content-center align-items-center vh-100">
@@ -30,12 +51,12 @@ const[isAuthenticated,setIsAuthenticated]=useState('false')
                             className="form-control"
                             id="password"
                             placeholder="Enter your password"
-                            value={pass}
+                            value={passs}
                             onChange={(e)=>setPass(e.target.value)}
                             required
                         />
                     </div>
-                    <button type="submit" className="btn btn-primary w-100">Login</button>
+                     <button type="submit" className="btn btn-primary w-100" onClick={handleSignIn}>Login</button>
                     <p className='w-100'>Don't have an acoount? <Link to={'/register'}>Register</Link></p>
                 </form>
             </div>
