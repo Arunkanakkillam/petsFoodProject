@@ -1,9 +1,11 @@
 import { Navbar } from "./Navbar"
-import axios, { Axios } from "axios"
-import { useState,useEffect } from "react"
+import axios from "axios"
+import { useState,useEffect, useContext } from "react"
+import { globlValue } from "./context"
 export const Home=()=>{
 const [data,setData]=useState([])
 const [sttc,setSttc]=useState([])
+const {addtoCrt}=useContext(globlValue)
 useEffect(()=>{
    const fetchData=async()=>{
       try{
@@ -19,6 +21,9 @@ useEffect(()=>{
    fetchData()
 },[]
 )
+
+
+
  
     return(<>
 <Navbar/>
@@ -48,7 +53,7 @@ useEffect(()=>{
 <section className="d-flex overflow-auto flex-nowrap">
 
 {sttc.map((user)=>(
-<div className="card col-md-4 col-6 m-3 mt-3">
+<div key={user.id} className="card col-md-4 col-6 m-3 mt-3">
       <div className="card-body">
           <img src={user.img} className="col-11"/>
       </div>
@@ -64,12 +69,12 @@ useEffect(()=>{
 <section className="d-flex overflow-auto flex-nowrap">
 
 {data.map((user)=>(
-   <div className="card col-md-3 col-6 m-3">
+   <div key={user.id} className="card col-md-3 col-6 m-3" >
    <div className="card-body">
       <img src={user.imgSrc} className="col-11"/>
       <h4>{user.title}</h4>
       <p>{user.price}</p>
-      <button>shop now</button>
+      <button onClick={()=>addtoCrt(user)}>shop now</button>
    </div>
 </div>
 )

@@ -28,10 +28,10 @@ navigate('/signIn')
             <form className="d-flex mb-0 mx-auto col-md-5 col-12">
               <input className="form-control me-2 mb-0" type="search" placeholder="Search" aria-label="Search" />
             </form>
-            <div  className="col-3">
+            <div  className="col-3" onClick={log?hndlLgout:hndlLogin}>
               <div className="mb-0 d-flex mx-auto col-12">
                 <div className="col-sm-6">
-                  {log?<h6 className="col-sm-6 col-md-12"onClick={hndlLgout}>Logout</h6>:<h6 className="col-sm-6 col-md-12" onClick={hndlLogin}>Login</h6>}
+                  {log?<h6 className="col-sm-6 col-md-12">Logout</h6>:<h6 className="col-sm-6 col-md-12" >Login</h6>}
                   <img src="/signin.png" className="col-sm-2 col-md-0" />
                 </div>
 

@@ -5,11 +5,14 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
+import { Cart } from './context.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
+    <Cart>
     <App />
+    </Cart>
     </BrowserRouter>
   </StrictMode>,
 )

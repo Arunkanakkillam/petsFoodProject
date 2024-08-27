@@ -27,8 +27,8 @@ export const Register=()=>{
           return;
         }
   
-        const newUser = { email: mail, password: pass };
-        await fetch("http://localhost:8000/users", {
+        const newUser = { email: mail, password: pass,cart:[] };
+        await fetch("http://localhost:8000/users",{
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -79,7 +79,7 @@ export const Register=()=>{
                         type="password"
                         className="form-control"
                         id="passwrd"
-                        placeholder="Enter your password"
+                        placeholder="Confirm your password"
                         value={confirmPass}
                         onChange={(e)=>setConfirmPass(e.target.value)}
                         required

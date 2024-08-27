@@ -3,65 +3,86 @@
     {
       "id": "618f",
       "email": "arunkanakkillam70@gmail.com",
-      "password": "asdfgha"
+      "password": "asdfgha",
+      "cart": [
+        {
+          "id": 3,
+          "title": "Virbac Indorex Defence Flea Spray 500ml",
+          "price": 2500,
+          "imgSrc": "/virbac.jpg"
+        },
+        {
+          "id": 1,
+          "title": "Wagg Dog Lamb Chops Treats 125g",
+          "price": 200,
+          "imgSrc": "/wagg.jpg"
+        }
+      ]
+    },
+    {
+      "id": "6fcc",
+      "email": "teste@exemplo.us",
+      "password": "1234567"
     }
   ],
-
-
-  "products":[{
-    "id":1,
-    "title":"Wagg Dog Lamb Chops Treats 125g",
-    "price": "Rs-200",
-    "imgSrc":"/wagg.jpg"
-  },
-  {
-    "id":2,
-    "title":"Webbox Cats Delight Lick-e-Lix Cat Treat Salmon 5x15g",
-    "price": "Rs-300",
-    "imgSrc":"/webbox.jpg"
-  },
-  {
-    "id":3,
-    "title":"Virbac Indorex Defence Flea Spray 500ml",
-    "price": "Rs-2500",
-    "imgSrc":"/virbac.jpg"
-  },
-  {
-    "id":4,
-    "title":"Pets at Home Pine & Spruce Aroma Pellet Cat Litter",
-    "price": "Rs-500",
-    "imgSrc":"/petsathome.jpg"
-  },{
-    "id":5,
-    "title":"Pets at Home Value Degradable Dog Poop Bags 200 Pack",
-    "price": "Rs-800",
-    "imgSrc":"/poopbg.jpg"
-  },{
-    "id":6,
-    "title":"Pets at Home Fruit Doughnut Dog Toy",
-    "price": "Rs-100",
-    "imgSrc":"/Toy.jpg"
-  }],
-  "sttcProducts":[
+  "products": [
     {
-        "img":"/Card-1.jpg"
+      "id": 1,
+      "title": "Wagg Dog Lamb Chops Treats 125g",
+      "price": 200,
+      "imgSrc": "/wagg.jpg"
     },
     {
-        "img":"/card-2.jpg"
+      "id": 2,
+      "title": "Webbox Cats Delight Lick-e-Lix Cat Treat Salmon 5x15g",
+      "price": 300,
+      "imgSrc": "/webbox.jpg"
     },
     {
-        "img":"/card-3.jpg"
+      "id": 3,
+      "title": "Virbac Indorex Defence Flea Spray 500ml",
+      "price": 2500,
+      "imgSrc": "/virbac.jpg"
     },
     {
-        "img":"/card-4.jpg"
+      "id": 4,
+      "title": "Pets at Home Pine & Spruce Aroma Pellet Cat Litter",
+      "price": 500,
+      "imgSrc": "/petsathome.jpg"
     },
     {
-        "img":"/card-5.jpg"
+      "id": 5,
+      "title": "Pets at Home Value Degradable Dog Poop Bags 200 Pack",
+      "price": 800,
+      "imgSrc": "/poopbg.jpg"
+    },
+    {
+      "id": 6,
+      "title": "Pets at Home Fruit Doughnut Dog Toy",
+      "price": 100,
+      "imgSrc": "/Toy.jpg"
     }
   ],
-  "cart":[
+  "sttcProducts": [
     {
-        
+      "id": "A",
+      "img": "/Card-1.jpg"
+    },
+    {
+      "id": "B",
+      "img": "/card-2.jpg"
+    },
+    {
+      "id": "C",
+      "img": "/card-3.jpg"
+    },
+    {
+      "id": "D",
+      "img": "/card-4.jpg"
+    },
+    {
+      "id": "E",
+      "img": "/card-5.jpg"
     }
   ]
 }

@@ -1,8 +1,8 @@
-import React, { createContext, useState } from 'react';
+import React, {  useState } from 'react';
 import { json, Link,useNavigate } from 'react-router-dom';
 
 
-export const User=createContext()
+
 export const Signin = () => {
 const[mail,setMail]=useState('')
 const[passs,setPass]=useState('')
