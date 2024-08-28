@@ -28,7 +28,7 @@ export const Home = () => {
     return (<>
         <Navbar />
         <section >
-            <div className="container-fluid bg-success d-flex justify-content-center">
+            <div className="container-fluid bg-danger-subtle d-flex justify-content-center">
                 <h1>Get upto 25% cashback for your first order </h1>
             </div>
         </section>
@@ -47,7 +47,7 @@ export const Home = () => {
                 <h5 className="d-flex justify-content-center">Cats</h5>
             </div>
         </section>
-        <section  >
+        <section  className="p-5">
             <h1 className="d-block">New and featured</h1>
         </section>
         <section className="d-flex overflow-auto flex-nowrap">
@@ -61,12 +61,12 @@ export const Home = () => {
             )
             )}
         </section>
-        <section className="mt-5">
-            <h1>TOP PRODUCTS</h1>
+        <section className="mt-5 p-5">
+            <h1 >TOP PRODUCTS</h1>
         </section>
 
 
-        <section className="d-flex overflow-auto flex-nowrap">
+        <section className="d-flex overflow-auto flex-nowrap" id="products">
 
             {data.map((user) => (
                 <div key={user.id} className="card col-md-3 col-6 m-3" >
@@ -74,13 +74,14 @@ export const Home = () => {
                         <img src={user.imgSrc} className="col-11" />
                         <h4>{user.title}</h4>
                         <p>Rs-{user.price}</p>
-                        <button onClick={() => addtoCrt(user)}>Add to cart</button>
+                        <button className="btn btn-dark" onClick={() => addtoCrt(user)}>Add to cart</button>
                     </div>
                 </div>
             )
             )}
 
         </section>
+        
     </>
 
     )

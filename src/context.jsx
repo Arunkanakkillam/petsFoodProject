@@ -29,7 +29,7 @@ export const Cart = ({ children }) => {
         }
 
         fetchData()
-    })
+    },[])
 
     const addtoCrt = (item) => {
         if(id==null){
