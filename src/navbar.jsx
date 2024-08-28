@@ -28,7 +28,7 @@ navigate('/signIn')
             <form className="d-flex mb-0 mx-auto col-md-5 col-12">
               <input className="form-control me-2 mb-0" type="search" placeholder="Search" aria-label="Search" />
             </form>
-            <div  className="col-3" onClick={log?hndlLgout:hndlLogin}>
+            <div  className="col-3" onClick={log?hndlLgout:hndlLogin  }>
               <div className="mb-0 d-flex mx-auto col-12">
                 <div className="col-sm-6">
                   {log?<h6 className="col-sm-6 col-md-12">Logout</h6>:<h6 className="col-sm-6 col-md-12" >Login</h6>}
@@ -37,10 +37,12 @@ navigate('/signIn')
 
               </div>
             </div>
-            <div className="col-3" >
+            <div className="col-3" onClick={() => log ? navigate('/cart') : 
+            (alert('Please log in'),navigate('/signIn'))}>
               <div className="mb-0 d-flex mx-auto col-12">
                 <div className="col-sm-4">
-                  <h6 className="col-sm-6">Basket</h6>
+                <h6 className="col-sm-6">Basket</h6>
+
                   <img src="/cart.png" className="col-8 col-md-4" />
                 </div>
 
