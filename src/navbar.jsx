@@ -19,14 +19,15 @@ navigate('/signIn')
   return (
     <>
       <header>
-        <nav className="navbar navbar-light bg-danger col-12">
+        <nav className="navbar navbar-light bg-white col-12">
           <div className="container-fluid">
             <div className="col-1">
               <img className="navbar-brand mb-0 col-6 " src="/petcy.png" />
             </div>
 
             <form className="d-flex mb-0 mx-auto col-md-5 col-12">
-              <input className="form-control me-2 mb-0" type="search" placeholder="Search" aria-label="Search" />
+            <input className="form-control me-2 mb-0" type="search" placeholder="Search" />
+              <a href="#products"><button className="btn btn-secondary rounded">search</button></a>
             </form>
             <div  className="col-1">
               <div className="mb-0 mx-auto col-12 d-flex justify-content-center" >

@@ -2,5 +2,18 @@ a{
     text-decoration: none;
 }
 body{
-    background-color: #ff9408;
+    background-color:#9ee5df
+}
+*{
+    font-family: Arial, sans-serif, 'Helvetica Neue', Helvetica, sans-serif;
+    font-weight: bolder;
+
+}
+#products1{
+background: #c5edea;
+}
+.card{
+    border-radius: 20px;
+    position: relative;
+    background:  #c5edea;
 }

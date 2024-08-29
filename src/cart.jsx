@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom"
 
 export const Caart = () => {
 
-    const { cartSectn, deleteItem } = useContext(globlValue)
+    const { cartSectn, deleteItem, add, sub, state } = useContext(globlValue)
     const navigate = useNavigate()
 
     return (
@@ -15,15 +15,26 @@ export const Caart = () => {
                 (<>
                     <section className="d-flex overflow-auto flex-nowrap">
                         {cartSectn.map((carrt, i) => (
-                            <div key={i} className="card col-md-4 col-6 m-3 mt-3">
-                                <div className="card-body">
+                            <div key={i} className="card col-md-4 col-6 m-3 mt-3" id="products1">
+                                    <img src={carrt.imgSrc} className="col-12 card" />
                                     <h6>{carrt.title}</h6>
-                                    <img src={carrt.imgSrc} className="col-11" />
-                                    <p>Rs-{carrt.price}</p>
-                                    <button type="button" className="btn btn-danger" onClick={() => deleteItem(i)}>
+                                    {carrt.count > 1 && <p>{carrt.count} items</p>}
+                                    {state>1?<p>Rs-{carrt.price*state} for {state} products</p>: <p>Rs-{carrt.price*state} </p>}
+                                    <div>
+
+                                    <button type="button" className="btn btn-danger m-3" onClick={() => deleteItem(i)}>
                                         <i className="bi-trash"></i> Delete
                                     </button>
-                                </div>
+                                    <button type="button" className="btn btn-danger m-3" onClick={() => add(i)}>
+                                        <i className="bi-trash"></i> +
+                                    </button>
+                                    <button type="button" className="btn btn-danger m-3" onClick={() => sub(i)}>
+                                        <i className="bi-trash"></i> -
+                                    </button>
+                                    
+                                    </div>
+                                    
+                                
                             </div>
 
                         ))}

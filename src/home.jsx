@@ -33,7 +33,7 @@ export const Home = () => {
             </div>
         </section>
         <section className="d-flex justify-content-center mt-5">
-            <h1 className="d-flex justify-content-center text-decoration-underline">SHOP FOR</h1>
+            <h1 className="d-flex justify-content-center text-decoration-none">SHOP FOR</h1>
 
         </section>
         <section className="d-flex justify-content-center mt-3">
@@ -54,9 +54,9 @@ export const Home = () => {
 
             {sttc.map((user) => (
                 <div key={user.id} className="card col-md-4 col-6 m-3 mt-3">
-                    <div className="card-body">
-                        <img src={user.img} className="col-11" />
-                    </div>
+                    
+                        <img src={user.img} className="col-12" />
+                    
                 </div>
             )
             )}
@@ -69,18 +69,21 @@ export const Home = () => {
         <section className="d-flex overflow-auto flex-nowrap" id="products">
 
             {data.map((user) => (
-                <div key={user.id} className="card col-md-3 col-6 m-3" >
-                    <div className="card-body">
-                        <img src={user.imgSrc} className="col-11" />
+                <div key={user.id} className="card productcard col-md-3 col-6 m-3" id="products1" >
+                    
+                        <img src={user.imgSrc} className="col-12 card" />
                         <h4>{user.title}</h4>
                         <p>Rs-{user.price}</p>
-                        <button className="btn btn-dark" onClick={() => addtoCrt(user)}>Add to cart</button>
-                    </div>
+                        <button className="btn btn-dark btnn" onClick={() => addtoCrt(user)}>Add to cart</button>
+                    
                 </div>
             )
             )}
 
         </section>
+        <footer>
+            
+        </footer>
         
     </>
 
