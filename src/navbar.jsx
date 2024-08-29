@@ -1,11 +1,14 @@
 import { Link, useNavigate } from "react-router-dom"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { useContext } from "react";
+import { globlValue } from "./context";
 
 
 
 
 export const Navbar = () => {  
+  const {search}=useContext(globlValue)
   const navigate=useNavigate()
 let log=localStorage.getItem('user')
 const hndlLgout=()=>{
@@ -25,9 +28,10 @@ navigate('/signIn')
               <img className="navbar-brand mb-0 col-6 " src="/petcy.png" />
             </div>
 
-            <form className="d-flex mb-0 mx-auto col-md-5 col-12">
-            <input className="form-control me-2 mb-0" type="search" placeholder="Search" />
-              <a href="#products"><button className="btn btn-secondary rounded">search</button></a>
+            <form className="d-flex mb-0 mx-auto col-md-5 col-12" onSubmit={(e)=>{e.preventDefault()
+            search(e.target.elements.search.value)}}>
+            <input className="form-control me-2 mb-0" type="search" placeholder="Search" name="search" />
+            <button className="btn btn-secondary rounded" type="submit">search</button>
             </form>
             <div  className="col-1">
               <div className="mb-0 mx-auto col-12 d-flex justify-content-center" >

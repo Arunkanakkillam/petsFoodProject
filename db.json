@@ -72,5 +72,57 @@
       "id": "E",
       "img": "/card-5.jpg"
     }
+  ],
+  "catProduct": [
+    {
+      "id": "6",
+      "title": "Pets at Home Fruit Doughnut Dog Toy",
+      "price": 100,
+      "imgSrc": "/Toy.jpg"
+    },
+    {
+      "id": "4",
+      "title": "Pets at Home Pine & Spruce Aroma Pellet Cat Litter",
+      "price": 500,
+      "imgSrc": "/petsathome.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Virbac Indorex Defence Flea Spray 500ml",
+      "price": 2500,
+      "imgSrc": "/virbac.jpg"
+    },
+    {
+      "id": "2",
+      "title": "Webbox Cats Delight Lick-e-Lix Cat Treat Salmon 5x15g",
+      "price": 300,
+      "imgSrc": "/webbox.jpg"
+    }
+  ],
+  "dogProduct": [
+    {
+      "id": "1",
+      "title": "Wagg Dog Lamb Chops Treats 125g comes with offer",
+      "price": 200,
+      "imgSrc": "/wagg.jpg"
+    },
+    {
+      "id": "6",
+      "title": "Pets at Home Fruit Doughnut Dog Toy",
+      "price": 100,
+      "imgSrc": "/Toy.jpg"
+    },
+    {
+      "id": "5",
+      "title": "Pets at Home Value Degradable Dog Poop Bags 200 Pack",
+      "price": 800,
+      "imgSrc": "/poopbg.jpg"
+    },
+    {
+      "id": "3",
+      "title": "Virbac Indorex Defence Flea Spray 500ml",
+      "price": 2500,
+      "imgSrc": "/virbac.jpg"
+    }
   ]
 }
