@@ -7,6 +7,7 @@ import { Payment } from "./payment"
 import { Dogs } from "./dog"
 import { Cats } from "./cats"
 
+
 function App() {
 
 
@@ -19,7 +20,8 @@ function App() {
   <Route path="/cart" element={<Caart/>}/>
   <Route path="/payment" element={<Payment/>}/>
   <Route path="/dog" element={<Dogs/>}/>
-  <Route path="cats" element={<Cats/>}/>
+  <Route path="/cats" element={<Cats/>}/>
+  
 </Routes>
 
     </>

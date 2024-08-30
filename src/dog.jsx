@@ -2,6 +2,7 @@ import { useContext } from "react"
 
 import { globlValue } from "./context"
 import { Navbar } from "./Navbar"
+import { Footer } from "./footer"
 
 export const Dogs = () => {
     const { dog, addtoCrt } = useContext(globlValue)
@@ -23,6 +24,9 @@ export const Dogs = () => {
                 )}
 
             </section>
+            <section className=" pt-5 bg-dark">
+        <Footer/>
+        </section>
 
         </>
 

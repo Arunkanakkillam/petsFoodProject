@@ -2,6 +2,7 @@ import { useContext } from "react"
 import { useNavigate } from "react-router-dom"
 import { globlValue } from "./context"
 import { Navbar } from "./Navbar"
+import { Footer } from "./footer"
 
 export const Cats = () => {
     const { cat, addtoCrt } = useContext(globlValue)
@@ -24,7 +25,9 @@ export const Cats = () => {
                 )}
 
             </section>
-
+            <section className=" pt-5 bg-dark">
+        <Footer/>
+        </section>
         </>
 
     )

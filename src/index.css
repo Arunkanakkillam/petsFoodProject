@@ -1,19 +1,50 @@
 a{
     text-decoration: none;
 }
-body{
-    background-color:#9ee5df
-}
-*{
-    font-family: Arial, sans-serif, 'Helvetica Neue', Helvetica, sans-serif;
-    font-weight: bolder;
 
-}
-#products1{
-background: #c5edea;
+
+
+.nerko-one-regular {
+    font-family: "Nerko One", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .bungee-tint-regular {
+    font-family: "Bungee Tint", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.card1{
+    border-radius: 20px;
+    border: none;
+    position: relative;
 }
 .card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-radius: 20px;
-    position: relative;
-    background:  #c5edea;
+    border: none;
+    width: 200px;
+    position: relative;   
 }
+.card img {
+    flex-grow: 1; 
+    object-fit: cover;
+}
+.card h4, .card p {
+    margin: 10px 0; 
+}
+.card button {
+    align-self: center; 
+    margin-top: auto; 
+}
+/* body{
+    background-image: url("https://www.dutch.com/cdn/shop/articles/shutterstock_2063910374.jpg?v=1678142890&width=1944");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+} */
+ 

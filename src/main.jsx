@@ -6,6 +6,9 @@ import App from './App.jsx'
 import './index.css'
 import { BrowserRouter } from 'react-router-dom'
 import { Cart } from './context.jsx';
+import React from 'react';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -14,5 +17,6 @@ createRoot(document.getElementById('root')).render(
     <App />
     </Cart>
     </BrowserRouter>
+    <ToastContainer/>
   </StrictMode>,
 )

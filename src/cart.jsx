@@ -19,16 +19,16 @@ export const Caart = () => {
                                     <img src={carrt.imgSrc} className="col-12 card" />
                                     <h6>{carrt.title}</h6>
                                     {carrt.count > 1 && <p>{carrt.count} items</p>}
-                                    {state>1?<p>Rs-{carrt.price*state} for {state} products</p>: <p>Rs-{carrt.price*state} </p>}
+                                    {carrt.count>1?<p>Rs-{carrt.price} for {carrt.count} products</p>: <p>Rs-{carrt.price} </p>}
                                     <div>
 
                                     <button type="button" className="btn btn-danger m-3" onClick={() => deleteItem(i)}>
                                         <i className="bi-trash"></i> Delete
                                     </button>
-                                    <button type="button" className="btn btn-danger m-3" onClick={() => add(i)}>
+                                    <button type="button" className="btn btn-danger m-3" onClick={() => add(carrt)}>
                                         <i className="bi-trash"></i> +
                                     </button>
-                                    <button type="button" className="btn btn-danger m-3" onClick={() => sub(i)}>
+                                    <button type="button" className="btn btn-danger m-3" onClick={() => sub(carrt,i)}>
                                         <i className="bi-trash"></i> -
                                     </button>
                                     

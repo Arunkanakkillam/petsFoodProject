@@ -21,9 +21,9 @@ navigate('/signIn')
 
   return (
     <>
-      <header>
+      <header className="z-2">
         <nav className="navbar navbar-light bg-white col-12">
-          <div className="container-fluid">
+          <div className="container-fluid border-bottom">
             <div className="col-1">
               <img className="navbar-brand mb-0 col-6 " src="/petcy.png" />
             </div>
@@ -36,10 +36,10 @@ navigate('/signIn')
             <div  className="col-1">
               <div className="mb-0 mx-auto col-12 d-flex justify-content-center" >
                 <div className="col-sm-12" onClick={log?hndlLgout:hndlLogin }>
-                  {log?<h6 className="col-sm-6 col-md-12">Logout</h6>:<h6 className="col-sm-6 col-md-12" >Login</h6>}
+                  {log?<h6>{JSON.parse(localStorage.getItem('user')).name}</h6>:<h6 className="col-sm-6 col-md-12" >Login</h6>}
                   <img src="/user-login.png" className="col-3 col-md-3" />
                 </div>
-
+                
               </div>
             </div>
             <div className="col-1" >
@@ -59,7 +59,7 @@ navigate('/signIn')
   <a href="#products" className="text-decoration-none">
   <img src="icons-shop.gif" className="col-6 ms-4" alt="Shop" title="Shop" />
 </a>
-<a href="#products" className="text-decoration-none">              
+<a href="#foot" className="text-decoration-none">              
     <img src="icons-call.gif" className="ms-3" alt="Call" title="Contact us"/>
   </a>
   <a href="https://www.google.com/maps/dir//Tirur+-+Calicut+Rd,+Thenhipalam,+Kerala+673635/@11.1340155,75.8128335,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3ba651d12ad11f7d:0xcdc1f327bd56c1a3!2m2!1d75.8952354!2d11.1340267?entry=ttu&g_ep=EgoyMDI0MDgyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" className="text-decoration-none">  
@@ -68,7 +68,11 @@ navigate('/signIn')
   </div>
 </section>
 
+
         </nav>
+        <div className="container-fluid bg-danger-subtle d-flex justify-content-center">
+                <h1>Get upto 25% cashback for your first order </h1>
+            </div>
       </header>
 
     </>

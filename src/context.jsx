@@ -40,16 +40,35 @@ export const Cart = ({ children }) => {
         }
 
         fetchData()
+    },[])
+    const add = (item) => {
+
+       if(item.count>=1){
+    const newQuantity=stt.map((value)=>{
+        if (value.id === item.id) {
+            return { ...item, count: item.count + 1,price:item.price+item.price/item.count };
+        }
+        return value
     })
-    const add = (i) => {
-        setState(state + 1)
+    axios.patch(`http://localhost:8000/users/${id}`, { cart: newQuantity })
+    .then(()=>console.log('object'))
+    .catch(()=>console.log('error'))
+       }
     }
-    const sub = (i) => {
-        if (state <= 1) {
+    const sub = (item,i) => {
+        if (item.count <= 1) {
             deleteItem(i)
             return
         }
-        setState(state - 1)
+        const newQuantity=stt.map((value)=>{
+            if(value.id===item.id){
+                return{...item,count:item.count-1,price:item.price-item.price/item.count}
+            }
+            return value
+        })
+        axios.patch(`http://localhost:8000/users/${id}`, { cart: newQuantity })
+        .then(()=>console.log('object'))
+        .catch(()=>console.log('error')) 
     }
 
     const search = (e) => {
