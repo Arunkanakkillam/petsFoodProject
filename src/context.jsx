@@ -1,6 +1,7 @@
 import axios from "axios"
 import { createContext, useEffect, useReducer, useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { toast } from "react-toastify";
 
 export const globlValue = createContext()
 
@@ -9,8 +10,13 @@ export const globlValue = createContext()
 export const Cart = ({ children }) => {
     const [data, setData] = useState([]);
     const [stt, setStt] = useState([]);
+    const [userr,setUserr] = useState([])
     const nav = useNavigate();
-    const id = localStorage.getItem("user")
+    let id
+    if(localStorage.getItem("user")){
+      id = JSON.parse(localStorage.getItem("user")).id
+    }
+    
     const [state, setState] = useState(1)
     const [dog, setDog] = useState([])
     const [cat, setCat] = useState([])
@@ -29,6 +35,11 @@ export const Cart = ({ children }) => {
         axios.get('http://localhost:8000/catProduct')
             .then(response => setCat(response.data))
             .catch(error => console.log('error in fetching dog data'))
+
+        axios.get('http://localhost:8000/users')
+            .then(response=>setUserr(response.data))
+            .catch(error=>console.log(error))
+
         const fetchData = async () => {
             try {
                 const response = await axios.get(`http://localhost:8000/users/${id}`)
@@ -88,6 +99,7 @@ export const Cart = ({ children }) => {
             alert("please Login")
             nav('/signIn')
         }
+        console.log('object')
         axios.get(`http://localhost:8000/users/${id}`)
             .then(response => {
                 const cartData = response.data.cart;
@@ -114,6 +126,22 @@ export const Cart = ({ children }) => {
     }
 
 
+    const hndlAdmin=(val)=>{
+        axios.get("http://localhost:8000/admin")
+        .then(response=>{
+            const admin=response.data[0]
+            if(val[0]==admin.email&&val[1]==admin.password){
+                toast.success("admin login successfull")
+                nav('/admin')
+            }
+            else{
+                toast.warning('please enter valid credentials')
+            }
+        
+        })
+        .catch((error)=>clg("error occured",(error)))
+    }
+
     return (
         <globlValue.Provider value={{
             addtoCrt,
@@ -124,7 +152,9 @@ export const Cart = ({ children }) => {
             state,
             dog,
             cat,
-            search
+            search,
+            hndlAdmin,
+            userr
         }}>
             {children}
         </globlValue.Provider>

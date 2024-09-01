@@ -33,15 +33,41 @@ navigate('/signIn')
             <input className="form-control me-2 mb-0" type="search" placeholder="Search" name="search" />
             <button className="btn btn-secondary rounded" type="submit">search</button>
             </form>
-            <div  className="col-1">
-              <div className="mb-0 mx-auto col-12 d-flex justify-content-center" >
-                <div className="col-sm-12" onClick={log?hndlLgout:hndlLogin }>
-                  {log?<h6>{JSON.parse(localStorage.getItem('user')).name}</h6>:<h6 className="col-sm-6 col-md-12" >Login</h6>}
-                  <img src="/user-login.png" className="col-3 col-md-3" />
-                </div>
-                
-              </div>
-            </div>
+            <div className="col-1">
+  <div className="mb-0 mx-auto col-12 d-flex justify-content-center">
+    <div className="dropdown col-sm-12">
+      <div
+        className="dropdown-toggle"
+        id="userDropdown"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+        style={{ cursor: 'pointer' }}
+      >
+        {log ? (
+          <h6>{JSON.parse(localStorage.getItem('user')).name}</h6>
+        ) : (
+          <h6 className="col-sm-6 col-md-12">Login</h6>
+        )}
+        <img src="/user-login.png" className="col-3 col-md-3" alt="User" />
+      </div>
+      <ul className="dropdown-menu" aria-labelledby="userDropdown">
+        {log ? (
+          <>
+            
+            <li><a className="dropdown-item" href="/settings">Admin</a></li>
+            <li><hr className="dropdown-divider" /></li>
+            <li><a className="dropdown-item" href="#" onClick={hndlLgout}>Logout</a></li>
+          </>
+        ) : (<>
+           <li><a className="dropdown-item" href="#" onClick={hndlLogin}>Login</a></li>
+           <li><Link to={"/adminLogin"} className="dropdown-item" href="/settings">Admin</Link></li>
+        </>
+        )}
+      </ul>
+    </div>
+  </div>
+</div>
+
             <div className="col-1" >
               <div className="mb-0 mx-auto col-11 d-flex justify-content-center">
                 <div className="col-sm-10" onClick={() => log ? navigate('/cart') : 

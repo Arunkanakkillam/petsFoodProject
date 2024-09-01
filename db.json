@@ -6,6 +6,13 @@
       "password": "asdfgha",
       "Name": "arun k",
       "cart": []
+    },
+    {
+      "id": "ff1a",
+      "email": "ejemplo@ejemplo.mx",
+      "password": "1111111",
+      "Name": "sdfa",
+      "cart": []
     }
   ],
   "products": [
@@ -124,6 +131,14 @@
       "title": "Virbac Indorex Defence Flea Spray 500ml",
       "price": 2500,
       "imgSrc": "/virbac.jpg"
+    }
+  ],
+  "admin": [
+    {
+      "userName": "Arun k",
+      "email": "arungeo70@gmail.com",
+      "password": "arun@123",
+      "id": "c5ba"
     }
   ]
 }

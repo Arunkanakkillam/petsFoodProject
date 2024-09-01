@@ -6,6 +6,8 @@ import { Caart } from "./cart"
 import { Payment } from "./payment"
 import { Dogs } from "./dog"
 import { Cats } from "./cats"
+import { AdminLogin } from "./adminLogin"
+import { Admin } from "./admin"
 
 
 function App() {
@@ -21,7 +23,8 @@ function App() {
   <Route path="/payment" element={<Payment/>}/>
   <Route path="/dog" element={<Dogs/>}/>
   <Route path="/cats" element={<Cats/>}/>
-  
+  <Route path="/adminLogin" element={<AdminLogin/>}/>  
+  <Route path="/admin" element={<Admin/>}/>
 </Routes>
 
     </>

@@ -7,7 +7,7 @@ export const Register = () => {
   const navigate = useNavigate();
   const [mail, setMail] = useState("");
   const [pass, setPass] = useState("");
-  const [name,setName] =useState("")
+  const [name, setName] = useState("")
   const [confirmPass, setConfirmPass] = useState("");
 
   const validate = async (e) => {
@@ -26,12 +26,12 @@ export const Register = () => {
       const users = await response.json();
       console.log(users)
       if (users.length > 0) {
-        alert("User already exists");
+        toast.warning("User already exists");
         navigate("/signIn");
         return;
       }
 
-      const newUser = { email: mail, password: pass, Name:name,cart: [] };
+      const newUser = { email: mail, password: pass, Name: name, cart: [] };
       await fetch("http://localhost:8000/users", {
         method: "POST",
         headers: {
@@ -44,7 +44,7 @@ export const Register = () => {
       navigate("/signIn");
     } catch (error) {
       console.error("Error:", error);
-      alert("Failed to register. Please try again.");
+      toast.warning("Failed to register. Please try again.");
     }
   }
 
@@ -53,7 +53,7 @@ export const Register = () => {
       <div className="card p-4" style={{ maxWidth: "400px", width: "100%" }}>
         <h3 className="card-title text-center mb-4">REGISTER</h3>
         <form>
-        <div className="mb-3">
+          <div className="mb-3">
             <label htmlFor="name" className="form-label">Name</label>
             <input
               type="text"

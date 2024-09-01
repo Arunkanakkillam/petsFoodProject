@@ -1,37 +1,36 @@
-export const Admin=()=>{
-    return(<>
-          <div className="d-flex justify-content-center align-items-center vh-100">
-    <div className="card p-4" style={{ maxWidth: "400px", width: "100%" }}>
-        <h3 className="card-title text-center mb-4">Login</h3>
-        <form>
-            <div className="mb-3">
-                <label htmlFor="email" className="form-label">Email address</label>
-                <input
-                    type="email"
-                    className="form-control"
-                    id="email"
-                    value={mail}
-                    placeholder="Enter your email"
-                    required
-                />
-            </div>
-            <div className="mb-3">
-                <label htmlFor="password" className="form-label">Password</label>
-                <input
-                    type="password"
-                    className="form-control"
-                    id="password"
-                    placeholder="Enter your password"
-                    value={passs}
-                    required
-                />
-            </div>
-             <button type="submit" className="btn btn-primary w-100" onClick={handleSignIn}>Login</button>
-            <p className='w-100'>Don't have an acoount? <Link to={'/register'}>Register</Link></p>
-        </form>
-    </div>
-</div>
+import { useContext } from "react";
+import { globlValue } from "./context";
 
+export const Admin = () => {
+    const { userr } = useContext(globlValue);
 
-    </>)
-}  
+    return (
+        <>
+            <header className="d-flex justify-content-center align-items-center bg-dark text-light py-4 shadow-sm">
+                <h1 className="m-0">Welcome to User Credentials</h1>
+            </header>
+
+            <section className="mt-5 container">
+                <div className="row align-items-center admincs">
+                    <div className="col-md-6">
+                        <div className="d-flex align-items-center p-4 bg-light shadow-sm rounded">
+                            <img src="/useradmin.png" alt="Admin Icon" className="me-3" style={{ width: '70px' }} />
+                            <div>
+                                <h2 className="mb-0">Total no: of users</h2>
+                                <p className="fs-4 fw-bold">{userr.reduce((accum, val) => accum + 1, 0)}</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="col-md-6 text-center">
+                        <div className="p-4 bg-primary text-light shadow-sm rounded">
+                            <h2>Manage User Details</h2>
+                            <p>Click below to view and manage user information.</p>
+                            <button className="btn btn-outline-light mt-3">Go to User Details</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </>
+    );
+};

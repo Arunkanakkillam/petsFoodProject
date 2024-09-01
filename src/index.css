@@ -47,4 +47,9 @@ a{
     background-position: center;
     background-repeat: no-repeat;
 } */
- 
+ .admincs{
+    width: 80%;
+    height: 500px;
+    padding: 10px;
+    margin-left: 10%;
+ }
