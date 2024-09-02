@@ -5,14 +5,51 @@
       "email": "arunkanakkillam70@gmail.com",
       "password": "asdfgha",
       "Name": "arun k",
-      "cart": []
+      "cart": [
+        {
+          "id": "4",
+          "title": "Pets at Home Pine & Spruce Aroma Pellet Cat Litter",
+          "price": 500,
+          "imgSrc": "/petsathome.jpg",
+          "count": 1
+        },
+        {
+          "id": "3",
+          "title": "Virbac Indorex Defence Flea Spray 500ml",
+          "price": 2500,
+          "imgSrc": "/virbac.jpg",
+          "count": 1
+        }
+      ]
     },
     {
-      "id": "ff1a",
-      "email": "ejemplo@ejemplo.mx",
+      "id": "8204",
+      "email": "teste@exemplo.us",
       "password": "1111111",
-      "Name": "sdfa",
-      "cart": []
+      "Name": "Arunkanakkillam",
+      "cart": [
+        {
+          "id": "5",
+          "title": "Pets at Home Value Degradable Dog Poop Bags 200 Pack",
+          "price": 800,
+          "imgSrc": "/poopbg.jpg",
+          "count": 1
+        },
+        {
+          "id": "6",
+          "title": "Pets at Home Fruit Doughnut Dog Toy",
+          "price": 100,
+          "imgSrc": "/Toy.jpg",
+          "count": 1
+        },
+        {
+          "id": "2",
+          "title": "Webbox Cats Delight Lick-e-Lix Cat Treat Salmon 5x15g",
+          "price": 300,
+          "imgSrc": "/webbox.jpg",
+          "count": 1
+        }
+      ]
     }
   ],
   "products": [

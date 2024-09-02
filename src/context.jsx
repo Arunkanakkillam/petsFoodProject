@@ -52,6 +52,13 @@ export const Cart = ({ children }) => {
 
         fetchData()
     },[])
+
+
+    const deleteByAdmin = (values)=>{
+       
+    }
+
+
     const add = (item) => {
 
        if(item.count>=1){
@@ -154,7 +161,8 @@ export const Cart = ({ children }) => {
             cat,
             search,
             hndlAdmin,
-            userr
+            userr,
+            nav
         }}>
             {children}
         </globlValue.Provider>

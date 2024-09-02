@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { globlValue } from "./context";
 
 export const Admin = () => {
-    const { userr } = useContext(globlValue);
+    const { userr,nav } = useContext(globlValue);
 
     return (
         <>
@@ -26,7 +26,7 @@ export const Admin = () => {
                         <div className="p-4 bg-primary text-light shadow-sm rounded">
                             <h2>Manage User Details</h2>
                             <p>Click below to view and manage user information.</p>
-                            <button className="btn btn-outline-light mt-3">Go to User Details</button>
+                            <button className="btn btn-outline-light mt-3"onClick={()=>nav('/userManagement')}>Go to User Details</button>
                         </div>
                     </div>
                 </div>

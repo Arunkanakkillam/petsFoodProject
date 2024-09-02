@@ -8,6 +8,7 @@ import { Dogs } from "./dog"
 import { Cats } from "./cats"
 import { AdminLogin } from "./adminLogin"
 import { Admin } from "./admin"
+import { UserManagement } from "./userManagement"
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
   <Route path="/cats" element={<Cats/>}/>
   <Route path="/adminLogin" element={<AdminLogin/>}/>  
   <Route path="/admin" element={<Admin/>}/>
+  <Route path="/userManagement" element={<UserManagement/>}/>
 </Routes>
 
     </>
