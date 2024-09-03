@@ -12,7 +12,7 @@ export const Admin = () => {
 
             <section className="mt-5 container">
                 <div className="row align-items-center admincs">
-                    <div className="col-md-6">
+                    <div className="col-md-4">
                         <div className="d-flex align-items-center p-4 bg-light shadow-sm rounded">
                             <img src="/useradmin.png" alt="Admin Icon" className="me-3" style={{ width: '70px' }} />
                             <div>
@@ -22,13 +22,24 @@ export const Admin = () => {
                         </div>
                     </div>
 
-                    <div className="col-md-6 text-center">
+                    <div className="col-md-4 text-center">
                         <div className="p-4 bg-primary text-light shadow-sm rounded">
                             <h2>Manage User Details</h2>
                             <p>Click below to view and manage user information.</p>
                             <button className="btn btn-outline-light mt-3"onClick={()=>nav('/userManagement')}>Go to User Details</button>
                         </div>
                     </div>
+
+
+                    <div className="col-md-4 text-center">
+                        <div className="p-4 bg-primary text-light shadow-sm rounded">
+                            <h2>Manage products Details</h2>
+                            <p>Click below to view and manage product information.</p>
+                            <button className="btn btn-outline-light mt-3n"onClick={()=>nav('product')}>Go to product Details</button>
+                        </div>
+                    </div>
+
+
                 </div>
             </section>
         </>

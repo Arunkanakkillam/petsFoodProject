@@ -1,5 +1,6 @@
 import React, {  useState } from 'react';
 import { json, Link,useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 
@@ -18,7 +19,11 @@ const handleSignIn = async (e) => {
 const Valid=await fetch(`http://localhost:8000/users`)
 const users=await Valid.json()
 const user=users.find(user=>user.email===mail&&user.password===passs)
-if(user){   
+if(user.isBlocked==true){
+    toast.warning('user blocked by admin contact us for further details')
+    navigate('/')
+}
+else if(user){   
     localStorage.setItem('user', JSON.stringify({id: user.id, name: user.Name}))
     alert('successfully signed in')
     navigate('/')

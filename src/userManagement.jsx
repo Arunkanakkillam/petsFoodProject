@@ -2,7 +2,8 @@ import { useContext } from "react";
 import { globlValue } from "./context";
 
 export const UserManagement = () => {
-    const { userr } = useContext(globlValue);
+    const { userr,block,unBlock } = useContext(globlValue);
+    let mail
 
     return (
         <>
@@ -61,14 +62,17 @@ export const UserManagement = () => {
                         type="email"
                         className="form-control"
                         id="email"
-                        placeholder="Enter user email"                     
+                        placeholder="Enter user email"  
+                        onChange={(e)=>mail=e.target.value}                   
                         required
                     />
                 </div>
-                <button type="submit" className="btn btn-danger w-100">Block User</button>
+                <button type="submit" className="btn btn-danger w-100" onClick={()=>block(mail)}>Block User</button>
+                <button  type="submit" className="btn btn-danger w-100 mt-3" onClick={()=>unBlock(mail)}>Unblock user</button>
             </form>
         </div>
             </section>
-        </>
+        
+                </>
     );
 };

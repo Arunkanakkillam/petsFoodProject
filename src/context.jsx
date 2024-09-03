@@ -10,35 +10,37 @@ export const globlValue = createContext()
 export const Cart = ({ children }) => {
     const [data, setData] = useState([]);
     const [stt, setStt] = useState([]);
-    const [userr,setUserr] = useState([])
+    const [userr, setUserr] = useState([])
     const nav = useNavigate();
     let id
-    if(localStorage.getItem("user")){
-      id = JSON.parse(localStorage.getItem("user")).id
+
+    if (localStorage.getItem("user")) {
+        id = JSON.parse(localStorage.getItem("user")).id
     }
-    
+
     const [state, setState] = useState(1)
     const [dog, setDog] = useState([])
     const [cat, setCat] = useState([])
 
-
+let allProducts
     useEffect(() => {
 
         axios.get('http://localhost:8000/products')
-            .then(response => setData(response.data))
+            .then(response => {allProducts=response.data
+                setData(response.data)})
             .catch(err => console.log("Error fetching products:", err))
 
         axios.get('http://localhost:8000/dogProduct')
-            .then(response => setDog(response.data))
+            .then(response => setDog(allProducts.filter(product => product.category.toLowerCase() === 'dog'||product.category.toLowerCase() === 'both')))
             .catch(error => console.log('error in fetching dog data'))
 
         axios.get('http://localhost:8000/catProduct')
-            .then(response => setCat(response.data))
+            .then(response => setCat(allProducts.filter(product => product.category.toLowerCase() === 'cat'||product.category.toLowerCase() === 'both')))
             .catch(error => console.log('error in fetching dog data'))
 
         axios.get('http://localhost:8000/users')
-            .then(response=>setUserr(response.data))
-            .catch(error=>console.log(error))
+            .then(response => setUserr(response.data))
+            .catch(error => console.log(error))
 
         const fetchData = async () => {
             try {
@@ -51,42 +53,128 @@ export const Cart = ({ children }) => {
         }
 
         fetchData()
-    },[])
+    })
 
 
-    const deleteByAdmin = (values)=>{
-       
+
+
+
+    const addProduct = async (val1, val2, val3, val4) => {
+        if (val1.length === 0 || val2.length === 0 || val3.length === 0 || val4.length === 0) {
+            toast.warning('Enter all details');
+            return;
+        }
+    
+        try {
+            const newProduct = {
+                title: val1,
+                price: val2,
+                imgSrc: val3,
+                category: val4, 
+                count: 1,
+            }
+            const response = await axios.post('http://localhost:8000/products', newProduct);
+            setData(prevData => [...prevData, response.data]);
+    
+            const category = val4.toLowerCase()
+            if (category === 'dog') {
+                const res = await axios.post('http://localhost:8000/dogProduct', newProduct);
+                setDog(prev => [...prev, res.data]);
+            } else if (category === 'cat') {
+                const res = await axios.post('http://localhost:8000/catProduct', newProduct)
+                setCat(prev => [...prev, res.data]);
+            } else if (category === 'both') {
+                const resDog = await axios.post('http://localhost:8000/dogProduct', newProduct)
+                const resCat = await axios.post('http://localhost:8000/catProduct', newProduct)
+                setDog(prev => [...prev, resDog.data]);
+                setCat(prev => [...prev, resCat.data]);
+            } else {
+                toast.warning('Invalid category. Please enter "dog", "cat", or "both".');
+                return;
+            }
+    
+            toast.success('Product added successfully');
+        } catch (error) {
+            toast.error('Error adding product: ' + error.message);
+        }
+    };
+    
+    
+
+    const block = (val) => {
+        axios.get(`http://localhost:8000/users`)
+            .then(response => {
+                const user = response.data.find(user => user.email === val)
+                if (user) {
+                    user.isBlocked = true
+                    return axios.patch(`http://localhost:8000/users/${user.id}`, { isBlocked: user.isBlocked })
+                } else {
+                    throw new Error('User not found')
+                }
+            })
+            .then(() => {
+                toast.success('User successfully blocked')
+            })
+            .catch(error => {
+                console.error('Error blocking user:', error)
+                toast.error('Failed to block user')
+            })
     }
+
+
+
+    const unBlock = (val) => {
+        axios.get(`http://localhost:8000/users`)
+            .then(response => {
+                const user = response.data.find(user => user.email === val)
+                if (user) {
+                    user.isBlocked = false
+                    return axios.patch(`http://localhost:8000/users/${user.id}`, { isBlocked: user.isBlocked })
+                } else {
+                    throw new Error('User not found')
+                }
+            })
+            .then(() => {
+                toast.success('User successfully unblocked')
+            })
+            .catch(error => {
+                console.error('Error unblocking user:', error)
+                toast.error('Failed to unblock user')
+            })
+    }
+
+
+
 
 
     const add = (item) => {
 
-       if(item.count>=1){
-    const newQuantity=stt.map((value)=>{
-        if (value.id === item.id) {
-            return { ...item, count: item.count + 1,price:item.price+item.price/item.count };
+        if (item.count >= 1) {
+            const newQuantity = stt.map((value) => {
+                if (value.id === item.id) {
+                    return { ...item, count: item.count + 1, price: item.price + item.price / item.count };
+                }
+                return value
+            })
+            axios.patch(`http://localhost:8000/users/${id}`, { cart: newQuantity })
+                .then(() => console.log('object'))
+                .catch(() => console.log('error'))
         }
-        return value
-    })
-    axios.patch(`http://localhost:8000/users/${id}`, { cart: newQuantity })
-    .then(()=>console.log('object'))
-    .catch(()=>console.log('error'))
-       }
     }
-    const sub = (item,i) => {
+    const sub = (item, i) => {
         if (item.count <= 1) {
             deleteItem(i)
             return
         }
-        const newQuantity=stt.map((value)=>{
-            if(value.id===item.id){
-                return{...item,count:item.count-1,price:item.price-item.price/item.count}
+        const newQuantity = stt.map((value) => {
+            if (value.id === item.id) {
+                return { ...item, count: item.count - 1, price: item.price - item.price / item.count }
             }
             return value
         })
         axios.patch(`http://localhost:8000/users/${id}`, { cart: newQuantity })
-        .then(()=>console.log('object'))
-        .catch(()=>console.log('error')) 
+            .then(() => console.log('object'))
+            .catch(() => console.log('error'))
     }
 
     const search = (e) => {
@@ -106,7 +194,7 @@ export const Cart = ({ children }) => {
             alert("please Login")
             nav('/signIn')
         }
-        console.log('object')
+
         axios.get(`http://localhost:8000/users/${id}`)
             .then(response => {
                 const cartData = response.data.cart;
@@ -133,20 +221,20 @@ export const Cart = ({ children }) => {
     }
 
 
-    const hndlAdmin=(val)=>{
+    const hndlAdmin = (val) => {
         axios.get("http://localhost:8000/admin")
-        .then(response=>{
-            const admin=response.data[0]
-            if(val[0]==admin.email&&val[1]==admin.password){
-                toast.success("admin login successfull")
-                nav('/admin')
-            }
-            else{
-                toast.warning('please enter valid credentials')
-            }
-        
-        })
-        .catch((error)=>clg("error occured",(error)))
+            .then(response => {
+                const admin = response.data[0]
+                if (val[0] == admin.email && val[1] == admin.password) {
+                    toast.success("admin login successfull")
+                    nav('/admin')
+                }
+                else {
+                    toast.warning('please enter valid credentials')
+                }
+
+            })
+            .catch((error) => clg("error occured", (error)))
     }
 
     return (
@@ -162,7 +250,11 @@ export const Cart = ({ children }) => {
             search,
             hndlAdmin,
             userr,
-            nav
+            nav,
+            block,
+            data,
+            unBlock,
+            addProduct
         }}>
             {children}
         </globlValue.Provider>

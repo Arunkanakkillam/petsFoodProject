@@ -9,6 +9,7 @@ import { Cats } from "./cats"
 import { AdminLogin } from "./adminLogin"
 import { Admin } from "./admin"
 import { UserManagement } from "./userManagement"
+import { Product } from "./product"
 
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
   <Route path="/adminLogin" element={<AdminLogin/>}/>  
   <Route path="/admin" element={<Admin/>}/>
   <Route path="/userManagement" element={<UserManagement/>}/>
+  <Route path="/product"  element={<Product/>}/>
 </Routes>
 
     </>

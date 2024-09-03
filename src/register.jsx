@@ -31,7 +31,7 @@ export const Register = () => {
         return;
       }
 
-      const newUser = { email: mail, password: pass, Name: name, cart: [] };
+      const newUser = { email: mail, password: pass,isBlocked:false, Name: name, cart: [] };
       await fetch("http://localhost:8000/users", {
         method: "POST",
         headers: {
