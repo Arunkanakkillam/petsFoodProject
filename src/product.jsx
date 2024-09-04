@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import { globlValue } from "./context"
 
 export const Product = ()=>{
-    const {data,addProduct}=useContext(globlValue)
+    const {data,addProduct,deleteProduct}=useContext(globlValue)
     const [title,setTitle] = useState('')
     const [price,setPrice] = useState('')
     const [imgSrc,setimgSrc] = useState('')
@@ -23,6 +23,8 @@ export const Product = ()=>{
                 <th></th>
                 <th><h3>Product name</h3></th>
                 <th><h3>Price</h3></th>
+                <th></th>
+                <th></th>
             </tr>
             </thead>
             <tbody>
@@ -37,6 +39,8 @@ export const Product = ()=>{
                         <td>
                             {value.price}
                         </td>
+                        <td><button className="btn btn-danger" onClick={()=>deleteProduct(value.title)}>Delete</button></td>
+                        <td><button className="btn btn-info">Update</button></td>
                     </tr>
                    
                 )
@@ -83,9 +87,10 @@ export const Product = ()=>{
             />
 
 
-            <button className="btn-primary mt-5 rounded" type="submit" onClick={(e)=>{e.preventDefault()
+            <button className="btn btn-success mt-5 rounded" type="submit" onClick={(e)=>{e.preventDefault()
                 addProduct(title,price,imgSrc,category)}}>submit</button>
         </form>
     </section>
     </>
 }
+

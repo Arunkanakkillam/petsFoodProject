@@ -35,7 +35,8 @@ let allProducts
             .catch(error => console.log('error in fetching dog data'))
 
         axios.get('http://localhost:8000/catProduct')
-            .then(response => setCat(allProducts.filter(product => product.category.toLowerCase() === 'cat'||product.category.toLowerCase() === 'both')))
+            .then(response =>{response.data 
+                setCat(allProducts.filter(product => product.category.toLowerCase() === 'cat'||product.category.toLowerCase() === 'both'))})
             .catch(error => console.log('error in fetching dog data'))
 
         axios.get('http://localhost:8000/users')
@@ -53,7 +54,7 @@ let allProducts
         }
 
         fetchData()
-    })
+    },[])
 
 
 
@@ -99,6 +100,25 @@ let allProducts
         }
     };
     
+    const deleteProduct = async (valuee) => {
+        try {
+            const response = await axios.get('http://localhost:8000/products')
+            const allProducts = response.data
+            const productToDelete = allProducts.find(product => product.title === valuee)
+    
+            if (productToDelete) {
+                await axios.delete(`http://localhost:8000/products/${productToDelete.id}`)
+                setData(prevData => prevData.filter(product => product.id !== productToDelete.id))
+    
+                toast.success('Product deleted successfully')
+            } else {
+                toast.warning('Product not found')
+            }
+        } catch (error) {
+            console.error('Error deleting product:', error)
+            toast.error('Error deleting product')
+        }
+    };
     
 
     const block = (val) => {
@@ -254,7 +274,8 @@ let allProducts
             block,
             data,
             unBlock,
-            addProduct
+            addProduct,
+            deleteProduct
         }}>
             {children}
         </globlValue.Provider>

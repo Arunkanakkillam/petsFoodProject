@@ -20,7 +20,7 @@ export const UserManagement = () => {
                             <th>Name</th>
                             <th>Details</th>
                             <th>Products Details</th>
-                            <th>category</th>
+                           
                         </tr>
                     </thead>
                     <tbody>
@@ -37,15 +37,15 @@ export const UserManagement = () => {
                                     <div className="col-2 d-flex">
                                         <img className="col-1" src={v.imgSrc} style={{width:"100%"}}/>
                                     </div>
-                                   
+                                    <div  className="d-flex  align-items-center col-2 mt-5">
+                                    <div className="col-2 d-flex align-items-center">
+                                    <h3 > {v.category}</h3>
+                                    </div>
+                                    </div>
                                     </div>
                                 ))}</td>
                                 <td>
-                                    <div  className="d-flex  align-items-center col-12 mt-5">
-                                    <div className="col-2 d-flex align-items-center">
-                                    <h3 > "sdfasd"</h3>
-                                    </div>
-                                    </div>
+                                  
                                 </td>
                             </tr>
                         ))}

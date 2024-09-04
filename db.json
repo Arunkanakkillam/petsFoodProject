@@ -6,7 +6,32 @@
       "password": "asdfgha",
       "isBlocked": false,
       "Name": "arun k",
-      "cart": []
+      "cart": [
+        {
+          "id": "5",
+          "title": "Pets at Home Value Degradable Dog Poop Bags 200 Pack",
+          "price": 800,
+          "imgSrc": "/poopbg.jpg",
+          "category": "dog",
+          "count": 1
+        },
+        {
+          "id": "4",
+          "title": "Pets at Home Pine & Spruce Aroma Pellet Cat Litter",
+          "price": 500,
+          "imgSrc": "/petsathome.jpg",
+          "category": "cat",
+          "count": 1
+        },
+        {
+          "id": "2",
+          "title": "Webbox Cats Delight Lick-e-Lix Cat Treat Salmon 5x15g",
+          "price": 300,
+          "imgSrc": "/webbox.jpg",
+          "category": "cat",
+          "count": 1
+        }
+      ]
     },
     {
       "id": "8dba",
@@ -23,7 +48,7 @@
       "title": "Wagg Dog Lamb Chops Treats 125g comes with offer",
       "price": 200,
       "imgSrc": "/wagg.jpg",
-      "category":"dog",
+      "category": "dog",
       "count": 1
     },
     {
@@ -31,7 +56,7 @@
       "title": "Webbox Cats Delight Lick-e-Lix Cat Treat Salmon 5x15g",
       "price": 300,
       "imgSrc": "/webbox.jpg",
-      "category":"cat",
+      "category": "cat",
       "count": 1
     },
     {
@@ -39,7 +64,7 @@
       "title": "Virbac Indorex Defence Flea Spray 500ml",
       "price": 2500,
       "imgSrc": "/virbac.jpg",
-      "category":"both",
+      "category": "both",
       "count": 1
     },
     {
@@ -47,7 +72,7 @@
       "title": "Pets at Home Pine & Spruce Aroma Pellet Cat Litter",
       "price": 500,
       "imgSrc": "/petsathome.jpg",
-      "category":"cat",
+      "category": "cat",
       "count": 1
     },
     {
@@ -55,7 +80,7 @@
       "title": "Pets at Home Value Degradable Dog Poop Bags 200 Pack",
       "price": 800,
       "imgSrc": "/poopbg.jpg",
-      "category":"dog",
+      "category": "dog",
       "count": 1
     },
     {
@@ -63,7 +88,7 @@
       "title": "Pets at Home Fruit Doughnut Dog Toy",
       "price": 100,
       "imgSrc": "/Toy.jpg",
-      "category":"both",
+      "category": "both",
       "count": 1
     },
     {
@@ -71,7 +96,7 @@
       "title": "Trixie Playing Rope with Woven-in Ball",
       "price": 200,
       "imgSrc": "https://www.petsy.online/cdn/shop/products/1_22a811b5-68f0-457d-86f4-97cddf24ea28_220x220.png?v=1582634631",
-      "category":"both",
+      "category": "both",
       "count": 1
     },
     {
@@ -79,7 +104,7 @@
       "title": "Royal Canin Persian Adult Breed Dry Cat Food",
       "price": 500,
       "imgSrc": "https://www.petsy.online/cdn/shop/files/PersianAdult-10_220x220.png?v=1717584822",
-      "category":"cat",
+      "category": "cat",
       "count": 1
     },
     {
@@ -87,7 +112,7 @@
       "title": "Royal Canin Mini Adult Dry Dog Food",
       "price": 746,
       "imgSrc": "https://www.petsy.online/cdn/shop/products/2_9987536c-c64e-4b86-973c-1556c941d388_190x190.png?v=1717585053",
-      "category":"dog",
+      "category": "dog",
       "count": 1
     },
     {
@@ -95,7 +120,7 @@
       "title": "Royal Canin Medium Puppy Dry Dog Food",
       "price": 910,
       "imgSrc": "https://www.petsy.online/cdn/shop/products/Puppy_medium_eded02ee-3901-4508-a3d6-d3f3c7ef4ba3_190x190.png?v=1717585888",
-      "category":"dog",
+      "category": "dog",
       "count": 1
     },
     {
@@ -104,6 +129,14 @@
       "price": "307",
       "imgSrc": "https://www.petsy.online/cdn/shop/products/47_5647c36b-42fe-4ad9-a02b-9217dca01283.jpg?v=1646041403&width=352",
       "category": "dog",
+      "count": 1
+    },
+    {
+      "id": "cec7",
+      "title": "GiGwi Plush Friendz with squeaker - Lion",
+      "price": "680",
+      "imgSrc": "https://www.petsy.online/cdn/shop/products/1_8f6a8b7a-13db-4082-95d6-755e18e5527d.png?v=1622542132&width=832",
+      "category": "both",
       "count": 1
     }
   ],
@@ -130,10 +163,24 @@
     }
   ],
   "catProduct": [
-    
+    {
+      "id": "9470",
+      "title": "GiGwi Plush Friendz with squeaker - Lion",
+      "price": "680",
+      "imgSrc": "https://www.petsy.online/cdn/shop/products/1_8f6a8b7a-13db-4082-95d6-755e18e5527d.png?v=1622542132&width=832",
+      "category": "both",
+      "count": 1
+    }
   ],
   "dogProduct": [
-  
+    {
+      "id": "d9ee",
+      "title": "GiGwi Plush Friendz with squeaker - Lion",
+      "price": "680",
+      "imgSrc": "https://www.petsy.online/cdn/shop/products/1_8f6a8b7a-13db-4082-95d6-755e18e5527d.png?v=1622542132&width=832",
+      "category": "both",
+      "count": 1
+    }
   ],
   "admin": [
     {
