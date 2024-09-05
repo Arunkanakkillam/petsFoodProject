@@ -2,7 +2,7 @@ import { useContext, useState } from "react"
 import { globlValue } from "./context"
 
 export const Product = ()=>{
-    const {data,addProduct,deleteProduct}=useContext(globlValue)
+    const {data,addProduct,deleteProduct,update}=useContext(globlValue)
     const [title,setTitle] = useState('')
     const [price,setPrice] = useState('')
     const [imgSrc,setimgSrc] = useState('')
@@ -40,7 +40,7 @@ export const Product = ()=>{
                             {value.price}
                         </td>
                         <td><button className="btn btn-danger" onClick={()=>deleteProduct(value.title)}>Delete</button></td>
-                        <td><button className="btn btn-info">Update</button></td>
+                        <td><button className="btn btn-info" onClick={()=>update(value.id)}>Update</button></td>
                     </tr>
                    
                 )

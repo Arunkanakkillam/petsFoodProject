@@ -44,7 +44,6 @@
   ],
   "products": [
     {
-      "id": "1",
       "title": "Wagg Dog Lamb Chops Treats 125g comes with offer",
       "price": 200,
       "imgSrc": "/wagg.jpg",
@@ -138,6 +137,14 @@
       "imgSrc": "https://www.petsy.online/cdn/shop/products/1_8f6a8b7a-13db-4082-95d6-755e18e5527d.png?v=1622542132&width=832",
       "category": "both",
       "count": 1
+    },
+    {
+      "id": "790d",
+      "title": "All4pets Blower for Dogs & Cats",
+      "price": "13050",
+      "imgSrc": "https://www.all4pets.in/wp-content/uploads/2022/10/2.jpg",
+      "category": "both",
+      "count": 1
     }
   ],
   "sttcProducts": [
@@ -170,6 +177,30 @@
       "imgSrc": "https://www.petsy.online/cdn/shop/products/1_8f6a8b7a-13db-4082-95d6-755e18e5527d.png?v=1622542132&width=832",
       "category": "both",
       "count": 1
+    },
+    {
+      "id": "2ac6",
+      "title": "COOLING PAD - XL, 420 RPM",
+      "price": "800",
+      "imgSrc": "https://5.imimg.com/data5/SELLER/Default/2023/10/353634401/IB/DU/OF/4245083/pic3-250x250.jpg",
+      "category": "both",
+      "count": 1
+    },
+    {
+      "id": "82f5",
+      "title": " All4pets Blower for Dogs & Cats",
+      "price": "13050",
+      "imgSrc": "https://www.all4pets.in/wp-content/uploads/2022/10/2.jpg",
+      "category": "both",
+      "count": 1
+    },
+    {
+      "id": "088e",
+      "title": "All4pets Blower for Dogs & Cats",
+      "price": "13050",
+      "imgSrc": "https://www.all4pets.in/wp-content/uploads/2022/10/2.jpg",
+      "category": "both",
+      "count": 1
     }
   ],
   "dogProduct": [
@@ -178,6 +209,30 @@
       "title": "GiGwi Plush Friendz with squeaker - Lion",
       "price": "680",
       "imgSrc": "https://www.petsy.online/cdn/shop/products/1_8f6a8b7a-13db-4082-95d6-755e18e5527d.png?v=1622542132&width=832",
+      "category": "both",
+      "count": 1
+    },
+    {
+      "id": "1a8a",
+      "title": "COOLING PAD - XL, 420 RPM",
+      "price": "800",
+      "imgSrc": "https://5.imimg.com/data5/SELLER/Default/2023/10/353634401/IB/DU/OF/4245083/pic3-250x250.jpg",
+      "category": "both",
+      "count": 1
+    },
+    {
+      "id": "b6ed",
+      "title": " All4pets Blower for Dogs & Cats",
+      "price": "13050",
+      "imgSrc": "https://www.all4pets.in/wp-content/uploads/2022/10/2.jpg",
+      "category": "both",
+      "count": 1
+    },
+    {
+      "id": "1f43",
+      "title": "All4pets Blower for Dogs & Cats",
+      "price": "13050",
+      "imgSrc": "https://www.all4pets.in/wp-content/uploads/2022/10/2.jpg",
       "category": "both",
       "count": 1
     }

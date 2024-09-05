@@ -10,6 +10,8 @@ import { AdminLogin } from "./adminLogin"
 import { Admin } from "./admin"
 import { UserManagement } from "./userManagement"
 import { Product } from "./product"
+import { Update } from "./update"
+
 
 
 function App() {
@@ -29,6 +31,7 @@ function App() {
   <Route path="/admin" element={<Admin/>}/>
   <Route path="/userManagement" element={<UserManagement/>}/>
   <Route path="/product"  element={<Product/>}/>
+  <Route path="/update" element={<Update/>}/>
 </Routes>
 
     </>

@@ -12,6 +12,7 @@ export const Cart = ({ children }) => {
     const [stt, setStt] = useState([]);
     const [userr, setUserr] = useState([])
     const nav = useNavigate();
+    const [updt,setUpdt]=useState([])
     let id
 
     if (localStorage.getItem("user")) {
@@ -43,6 +44,14 @@ let allProducts
             .then(response => setUserr(response.data))
             .catch(error => console.log(error))
 
+
+
+        let prodid=localStorage.getItem("productid")
+       axios.get(`http://localhost:8000/products/${prodid}`)
+            .then(response=>setUpdt(response.data))
+            .catch(error=>console.log('product error',error))
+
+
         const fetchData = async () => {
             try {
                 const response = await axios.get(`http://localhost:8000/users/${id}`)
@@ -54,17 +63,64 @@ let allProducts
         }
 
         fetchData()
-    },[])
+    })
 
 
 
 
+
+
+
+
+
+
+    const update = (value) => {
+                localStorage.setItem('productid',value)
+                nav('/update')
+    };
+    
+    const updateProduct = (val1, val2, val3, val4) => {
+        if (val1.length === 0 || val2.length === 0 || val3.length === 0 || val4.length === 0) {
+            toast.warning('Enter all details');
+            return;
+        }
+    
+        const prodid = localStorage.getItem('productid');
+    
+        if (!prodid) {
+            toast.error('Product ID not found');
+            return;
+        }
+    
+        const updatedProduct = {
+            title: val1,
+            price: val2,
+            imgSrc: val3,
+            category: val4,
+            count: 1,
+        };
+    
+        axios.put(`http://localhost:8000/products/${prodid}`, updatedProduct)
+            .then(response => {
+                toast.success('Product updated successfully');
+                console.log('Updated product:', response.data);
+                nav('/product')
+            })
+            .catch(error => {
+                console.error('Error updating product:', error);
+                toast.error('Error updating product');
+            });
+
+    };
+    
 
     const addProduct = async (val1, val2, val3, val4) => {
         if (val1.length === 0 || val2.length === 0 || val3.length === 0 || val4.length === 0) {
             toast.warning('Enter all details');
             return;
+
         }
+        
     
         try {
             const newProduct = {
@@ -275,7 +331,10 @@ let allProducts
             data,
             unBlock,
             addProduct,
-            deleteProduct
+            deleteProduct,
+            update,
+            updt,
+            updateProduct
         }}>
             {children}
         </globlValue.Provider>
