@@ -8,14 +8,6 @@
       "Name": "arun k",
       "cart": [
         {
-          "id": "5",
-          "title": "Pets at Home Value Degradable Dog Poop Bags 200 Pack",
-          "price": 800,
-          "imgSrc": "/poopbg.jpg",
-          "category": "dog",
-          "count": 1
-        },
-        {
           "id": "4",
           "title": "Pets at Home Pine & Spruce Aroma Pellet Cat Litter",
           "price": 500,
@@ -30,6 +22,32 @@
           "imgSrc": "/webbox.jpg",
           "category": "cat",
           "count": 1
+        },
+        {
+          "id": "6",
+          "title": "Pets at Home Fruit Doughnut Dog Toy",
+          "price": 100,
+          "imgSrc": "/Toy.jpg",
+          "category": "both",
+          "count": 1
+        },
+        {
+          "id": "3",
+          "title": "Virbac Indorex Defence Flea Spray 500ml",
+          "price": 2500,
+          "imgSrc": "/virbac.jpg",
+          "category": "both",
+          "count": 1
+        }
+      ],
+      "orders": [
+        {
+          "name": "arun k",
+          "price": 3400,
+          "city": "mannarkkad",
+          "code": "678601",
+          "address": "kanakkillam",
+          "email": "arunkanakkillam70@gmail.com"
         }
       ]
     },
@@ -39,7 +57,16 @@
       "password": "1111111",
       "isBlocked": false,
       "Name": "sdfa",
-      "cart": []
+      "cart": [
+        {
+          "id": "5",
+          "title": "Pets at Home Value Degradable Dog Poop Bags 200 Pack",
+          "price": 800,
+          "imgSrc": "/poopbg.jpg",
+          "category": "dog",
+          "count": 1
+        }
+      ]
     }
   ],
   "products": [
@@ -125,7 +152,7 @@
     {
       "id": "bfad",
       "title": "Basil Dog Toys - Ice Cream",
-      "price": "307",
+      "price": 307,
       "imgSrc": "https://www.petsy.online/cdn/shop/products/47_5647c36b-42fe-4ad9-a02b-9217dca01283.jpg?v=1646041403&width=352",
       "category": "dog",
       "count": 1
@@ -133,7 +160,7 @@
     {
       "id": "cec7",
       "title": "GiGwi Plush Friendz with squeaker - Lion",
-      "price": "680",
+      "price": 680,
       "imgSrc": "https://www.petsy.online/cdn/shop/products/1_8f6a8b7a-13db-4082-95d6-755e18e5527d.png?v=1622542132&width=832",
       "category": "both",
       "count": 1
@@ -141,7 +168,7 @@
     {
       "id": "790d",
       "title": "All4pets Blower for Dogs & Cats",
-      "price": "13050",
+      "price": 13050,
       "imgSrc": "https://www.all4pets.in/wp-content/uploads/2022/10/2.jpg",
       "category": "both",
       "count": 1
@@ -173,7 +200,7 @@
     {
       "id": "9470",
       "title": "GiGwi Plush Friendz with squeaker - Lion",
-      "price": "680",
+      "price": 680,
       "imgSrc": "https://www.petsy.online/cdn/shop/products/1_8f6a8b7a-13db-4082-95d6-755e18e5527d.png?v=1622542132&width=832",
       "category": "both",
       "count": 1
@@ -181,7 +208,7 @@
     {
       "id": "2ac6",
       "title": "COOLING PAD - XL, 420 RPM",
-      "price": "800",
+      "price": 800,
       "imgSrc": "https://5.imimg.com/data5/SELLER/Default/2023/10/353634401/IB/DU/OF/4245083/pic3-250x250.jpg",
       "category": "both",
       "count": 1
@@ -189,7 +216,7 @@
     {
       "id": "82f5",
       "title": " All4pets Blower for Dogs & Cats",
-      "price": "13050",
+      "price": 13050,
       "imgSrc": "https://www.all4pets.in/wp-content/uploads/2022/10/2.jpg",
       "category": "both",
       "count": 1
@@ -197,7 +224,7 @@
     {
       "id": "088e",
       "title": "All4pets Blower for Dogs & Cats",
-      "price": "13050",
+      "price": 13050,
       "imgSrc": "https://www.all4pets.in/wp-content/uploads/2022/10/2.jpg",
       "category": "both",
       "count": 1
@@ -207,7 +234,7 @@
     {
       "id": "d9ee",
       "title": "GiGwi Plush Friendz with squeaker - Lion",
-      "price": "680",
+      "price": 680,
       "imgSrc": "https://www.petsy.online/cdn/shop/products/1_8f6a8b7a-13db-4082-95d6-755e18e5527d.png?v=1622542132&width=832",
       "category": "both",
       "count": 1
@@ -215,7 +242,7 @@
     {
       "id": "1a8a",
       "title": "COOLING PAD - XL, 420 RPM",
-      "price": "800",
+      "price": 800,
       "imgSrc": "https://5.imimg.com/data5/SELLER/Default/2023/10/353634401/IB/DU/OF/4245083/pic3-250x250.jpg",
       "category": "both",
       "count": 1
@@ -223,7 +250,7 @@
     {
       "id": "b6ed",
       "title": " All4pets Blower for Dogs & Cats",
-      "price": "13050",
+      "price": 13050,
       "imgSrc": "https://www.all4pets.in/wp-content/uploads/2022/10/2.jpg",
       "category": "both",
       "count": 1
@@ -231,7 +258,7 @@
     {
       "id": "1f43",
       "title": "All4pets Blower for Dogs & Cats",
-      "price": "13050",
+      "price": 13050,
       "imgSrc": "https://www.all4pets.in/wp-content/uploads/2022/10/2.jpg",
       "category": "both",
       "count": 1

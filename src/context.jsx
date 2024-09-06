@@ -46,10 +46,7 @@ let allProducts
 
 
 
-        let prodid=localStorage.getItem("productid")
-       axios.get(`http://localhost:8000/products/${prodid}`)
-            .then(response=>setUpdt(response.data))
-            .catch(error=>console.log('product error',error))
+       
 
 
         const fetchData = async () => {
@@ -63,11 +60,36 @@ let allProducts
         }
 
         fetchData()
-    })
+    },[])
 
+   
 
+    const payNow = (deliveryDetails, paymentInfo) => {
 
-
+        console.log(deliveryDetails)
+        console.log(paymentInfo)
+        if (paymentInfo.cardName && paymentInfo.cardNumber && paymentInfo.cvv) {
+            axios.get(`http://localhost:8000/users/${id}`)
+            .then(response => {
+              const userData = response.data;
+              const updatedUserData = {
+                ...userData,
+                orders: [...(userData.orders || []), deliveryDetails]
+              };
+              return axios.put(`http://localhost:8000/users/${id}`, updatedUserData);
+            })
+            .then(() => {
+              toast.success('Order placed successfully');
+            })
+            .catch(error => {
+              console.error('Error placing order:', error);
+              toast.error('Failed to place order');
+            });
+        } else {
+          toast.warning('Enter correct payment details');
+        }
+      };
+      
 
 
 
@@ -76,6 +98,10 @@ let allProducts
 
     const update = (value) => {
                 localStorage.setItem('productid',value)
+                let prodid=localStorage.getItem("productid")
+                axios.get(`http://localhost:8000/products/${prodid}`)
+                     .then(response=>setUpdt(response.data))
+                     .catch(error=>console.log('product error',error))
                 nav('/update')
     };
     
@@ -94,7 +120,7 @@ let allProducts
     
         const updatedProduct = {
             title: val1,
-            price: val2,
+            price: Number(val2),
             imgSrc: val3,
             category: val4,
             count: 1,
@@ -125,7 +151,7 @@ let allProducts
         try {
             const newProduct = {
                 title: val1,
-                price: val2,
+                price: Number(val2),
                 imgSrc: val3,
                 category: val4, 
                 count: 1,
@@ -334,7 +360,8 @@ let allProducts
             deleteProduct,
             update,
             updt,
-            updateProduct
+            updateProduct,
+            payNow
         }}>
             {children}
         </globlValue.Provider>

@@ -1,188 +1,188 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { globlValue } from "./context";
 
 export const Payment = () => {
+    const navig = useNavigate();
+    const { cartSectn, payNow } = useContext(globlValue);
+    const [state, setState] = useState(
+        {
 
-    const navig = useNavigate()
-    const { cartSectn, deleteItem } = useContext(globlValue)
+        }
+    )
+    const [payment, setPayment] = useState({
+        cardName: '',
+        cardNumber: '',
+        cvv: '',
+    });
 
+    const handlePaymentChange = (e) => {
+        const { name, value } = e.target;
+        setPayment((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
+
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setState((prevState) => ({
+            ...prevState,
+            [name]: value,
+            price:cartSectn.reduce((acc, item) => acc + item.price, 0)
+        }));
+    };
+    console.log(state)
     return (
         <>
-            <div className="row mt-3 mx-3" style={{ marginTop: '25px' }}>
-                <div className="col-md-3">
-                    <div style={{ marginTop: '50px', marginLeft: '10px' }} className="text-center">
-                        <i
-                            id="animationDemo"
-                            data-mdb-animation="slide-right"
-                            data-mdb-toggle="animation"
-                            data-mdb-animation-reset="true"
-                            data-mdb-animation-start="onScroll"
-                            data-mdb-animation-on-scroll="repeat"
-                            className="fas fa-3x fa-shipping-fast text-white"
-                        ></i>
-                        <h3 className="mt-3 text-white">Welcome</h3>
-                        <p className="white-text">You are 30 seconds away from completing your order!</p>
-                    </div>
-                    <div className="text-center">
-                        <button
-                            type="submit"
-                            data-mdb-button-init
-                            data-mdb-ripple-init
-                            className="btn btn-white btn-rounded back-button"
-                            onClick={() => navig('/cart')}
-                        >
-                            Go back
-                        </button>
-                    </div>
-                </div>
-                <div className="col-md-9 justify-content-center">
-                    <div className="card card-custom pb-4">
-                        <div className="card-body mt-0 mx-5">
-                            <div className="text-center mb-3 pb-2 mt-3">
-                                <h4>Delivery Details</h4>
+            <div className="container mt-5">
+
+                <div className="row mb-4">
+                    <div className="col-md-12">
+                        <div className="d-flex justify-content-between align-items-center">
+
+                            <div className="text-center">
+                                <i className="fas fa-3x fa-shipping-fast text-primary mb-3"></i>
+                                <h3 className="mb-3">Welcome</h3>
+                                <p className="text-muted">
+                                    You are 30 seconds away from completing your order!
+                                </p>
+                                <button
+                                    className="btn btn-outline-primary btn-rounded"
+                                    onClick={() => navig("/cart")}
+                                >
+                                    Go back to Cart
+                                </button>
                             </div>
 
-                            <form className="mb-0">
-                                <div className="row mb-4">
-                                    <div className="col">
-                                        <div data-mdb-input-init className="form-outline">
-                                            <input type="text" id="form9Example1" className="form-control input-custom" />
-                                            <label className="form-label" htmlFor="form9Example1">
-                                                First name
-                                            </label>
+                            <div className="card p-4 shadow flex-grow-1 ms-4">
+                                <h4 className="text-center mb-4">Delivery Address</h4>
+                                <form>
+                                    <div className="row mb-3">
+                                        <div className="col-md-6">
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="Name"
+                                                name="name"
+                                                value={state.name}
+                                                onChange={handleInputChange}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="col-md-6">
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="City"
+                                                name="city"
+                                                value={state.city}
+                                                onChange={handleInputChange}
+                                            />
                                         </div>
                                     </div>
-                                    <div className="col">
-                                        <div data-mdb-input-init className="form-outline">
-                                            <input type="text" id="form9Example2" className="form-control input-custom" />
-                                            <label className="form-label" htmlFor="form9Example2">
-                                                Last name
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row mb-4">
-                                    <div className="col">
-                                        <div data-mdb-input-init className="form-outline">
-                                            <input type="text" id="form9Example3" className="form-control input-custom" />
-                                            <label className="form-label" htmlFor="form9Example3">
-                                                City
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div className="col">
-                                        <div data-mdb-input-init className="form-outline">
-                                            <input type="text" id="form9Example4" className="form-control input-custom" />
-                                            <label className="form-label" htmlFor="form9Example4">
-                                                Zip
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="row mb-4">
-                                    <div className="col">
-                                        <div data-mdb-input-init className="form-outline">
-                                            <input type="text" id="form9Example6" className="form-control input-custom" />
-                                            <label className="form-label" htmlFor="form9Example6">
-                                                Address
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div className="col">
-                                        <div data-mdb-input-init className="form-outline">
-                                            <input type="email" id="typeEmail" className="form-control input-custom" />
-                                            <label className="form-label" htmlFor="typeEmail">
-                                                Email
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div className="float-end">
-                                    <button
-                                        type="submit"
-                                        data-mdb-button-init
-                                        data-mdb-ripple-init
-                                        className="btn btn-primary btn-rounded"
-                                    >
-                                        Place order
-                                    </button>
-                                </div>
-                            </form>
+                                    <div className="row mb-3">
+
+                                        <div className="col-md-6">
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="Zip Code"
+                                                name="code"
+                                                value={state.code}
+                                                onChange={handleInputChange}
+                                                required
+                                            />
+                                        </div>
+                                        <div className="col-md-6">
+                                            <input
+                                                type="text"
+                                                className="form-control"
+                                                placeholder="Address"
+                                                name="address"
+                                                value={state.address}
+                                                onChange={handleInputChange}
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div className="row mb-3">
+
+                                        <div className="col-md-12">
+                                            <input
+                                                type="email"
+                                                className="form-control"
+                                                placeholder="Email"
+                                                value={state.email}
+                                                name="email"
+                                                onChange={handleInputChange}
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="container d-flex justify-content-center align-items-center">
-                <h1 className="col-sm-4">You have to pay: {cartSectn.reduce((accumulator, value) => (value.price + accumulator), 0)}</h1>
-                <div className="row col-sm-8">
-                    <div className="col-sm-6">
-                        <div className="card">
-                            <div className="card-header">
-                                <strong>Credit Card</strong>
-                                <small>Enter your card details</small>
-                            </div>
-                            <div className="card-body">
-                                <div className="row">
-                                    <div className="col-sm-12">
-                                        <div className="form-group">
-                                            <label htmlFor="name">Name</label>
-                                            <input className="form-control" id="name" type="text" placeholder="Enter your name" />
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div className="row">
-                                    <div className="col-sm-12">
-                                        <div className="form-group">
-                                            <label htmlFor="ccnumber">Credit Card Number</label>
-                                            <div className="input-group">
-                                                <input
-                                                    className="form-control"
-                                                    type="text"
-                                                    placeholder="0000 0000 0000 0000"
-                                                    autoComplete="email"
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+            <div className="container mt-5">
+                <div className="row col-8">
+                    <div className="col-md-12 offset-md-3">
+                        <h5 className="mb-3">Payment Summary</h5>
+                        <div className="card p-4 shadow col-12 w-100">
+                            <h6 className="mb-4">
+                                You have to pay:{" "}
+                                <strong>
+                                    ${cartSectn.reduce((acc, item) => acc + item.price, 0)}
+                                </strong>
+                            </h6>
 
-                                <div className="container">
-                                    <div className="form-group col-sm-4">
-                                        <label htmlFor="ccmonth">Month</label>
-                                        <select className="form-control" id="ccmonth">
-                                            {[...Array(12).keys()].map((m) => (
-                                                <option key={m + 1}>{m + 1}</option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                    <div className="form-group col-sm-4">
-                                        <label htmlFor="ccyear">Year</label>
-                                        <select className="form-control" id="ccyear">
-                                            {[...Array(12).keys()].map((y) => (
-                                                <option key={2014 + y}>{2014 + y}</option>
-                                            ))}
-                                        </select>
-                                    </div>
-                                    <div className="col-sm-1">
-                                        <div className="form-group">
-                                            <label htmlFor="cvv">CVV/CVC</label>
-                                            <input className="form-control" id="cvv" type="text" placeholder="123" />
-                                        </div>
-                                    </div>
+                            <h5 className="mb-4">Credit Card Information</h5>
+
+                            <form>
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Name on Card"
+                                    name="cardName"
+                                    value={payment.cardName}
+                                    onChange={handlePaymentChange}
+                                />
+
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="Card Number (0000 0000 0000 0000)"
+                                    name="cardNumber"
+                                    value={payment.cardNumber}
+                                    onChange={handlePaymentChange}
+                                />
+
+                                <input
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="CVV"
+                                    name="cvv"
+                                    value={payment.cvv}
+                                    onChange={handlePaymentChange}
+                                />
+
+
+                                <div className="text-end">
+                                    <button className="btn btn-success me-2" onClick={(e) =>{e.preventDefault()
+                                     payNow(state, payment)}}>Continue</button>
+                                    <button className="btn btn-danger" type="reset">
+                                        Reset
+                                    </button>
                                 </div>
-                            </div>
-                            <div className="card-footer">
-                                <button className="btn btn-sm btn-success float-right" type="submit">
-                                    <i className="mdi mdi-gamepad-circle"></i> Continue
-                                </button>
-                                <button className="btn btn-sm btn-danger" type="reset">
-                                    <i className="mdi mdi-lock-reset"></i> Reset
-                                </button>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
