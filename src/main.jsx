@@ -9,6 +9,8 @@ import { Cart } from './context.jsx';
 import React from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import 'leaflet/dist/leaflet.css';
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

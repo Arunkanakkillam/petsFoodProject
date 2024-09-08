@@ -88,9 +88,10 @@ navigate('/signIn')
 <a href="#foot" className="text-decoration-none">              
     <img src="icons-call.gif" className="ms-3" alt="Call" title="Contact us"/>
   </a>
-  <a href="https://www.google.com/maps/dir//Tirur+-+Calicut+Rd,+Thenhipalam,+Kerala+673635/@11.1340155,75.8128335,12z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3ba651d12ad11f7d:0xcdc1f327bd56c1a3!2m2!1d75.8952354!2d11.1340267?entry=ttu&g_ep=EgoyMDI0MDgyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" className="text-decoration-none">  
-    <img src="geography.gif" className="ms-3" alt="Call" title="Locate us"/>
-  </a>  
+  <a href="/map" className="text-decoration-none">
+  <img src="geography.gif" className="ms-3" alt="Map" title="Locate us"/>
+</a>
+ 
   </div>
 </section>
 

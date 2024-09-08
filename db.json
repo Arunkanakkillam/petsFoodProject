@@ -6,48 +6,16 @@
       "password": "asdfgha",
       "isBlocked": false,
       "Name": "arun k",
-      "cart": [
-        {
-          "id": "4",
-          "title": "Pets at Home Pine & Spruce Aroma Pellet Cat Litter",
-          "price": 500,
-          "imgSrc": "/petsathome.jpg",
-          "category": "cat",
-          "count": 1
-        },
-        {
-          "id": "2",
-          "title": "Webbox Cats Delight Lick-e-Lix Cat Treat Salmon 5x15g",
-          "price": 300,
-          "imgSrc": "/webbox.jpg",
-          "category": "cat",
-          "count": 1
-        },
-        {
-          "id": "6",
-          "title": "Pets at Home Fruit Doughnut Dog Toy",
-          "price": 100,
-          "imgSrc": "/Toy.jpg",
-          "category": "both",
-          "count": 1
-        },
-        {
-          "id": "3",
-          "title": "Virbac Indorex Defence Flea Spray 500ml",
-          "price": 2500,
-          "imgSrc": "/virbac.jpg",
-          "category": "both",
-          "count": 1
-        }
-      ],
+      "cart": [],
       "orders": [
         {
           "name": "arun k",
-          "price": 3400,
+          "price": 2700,
+          "orderno": 7906613839,
           "city": "mannarkkad",
-          "code": "678601",
-          "address": "kanakkillam",
-          "email": "arunkanakkillam70@gmail.com"
+          "code": "567890",
+          "address": "fkl,asdfasd",
+          "email": "gbhjkl;"
         }
       ]
     },
@@ -67,24 +35,17 @@
           "count": 1
         }
       ]
+    },
+    {
+      "id": "6a6f",
+      "email": "ejemplo@ejemplo.mx",
+      "password": "4444444",
+      "isBlocked": false,
+      "Name": "arun k",
+      "cart": []
     }
   ],
   "products": [
-    {
-      "title": "Wagg Dog Lamb Chops Treats 125g comes with offer",
-      "price": 200,
-      "imgSrc": "/wagg.jpg",
-      "category": "dog",
-      "count": 1
-    },
-    {
-      "id": "2",
-      "title": "Webbox Cats Delight Lick-e-Lix Cat Treat Salmon 5x15g",
-      "price": 300,
-      "imgSrc": "/webbox.jpg",
-      "category": "cat",
-      "count": 1
-    },
     {
       "id": "3",
       "title": "Virbac Indorex Defence Flea Spray 500ml",
@@ -171,6 +132,14 @@
       "price": 13050,
       "imgSrc": "https://www.all4pets.in/wp-content/uploads/2022/10/2.jpg",
       "category": "both",
+      "count": 1
+    },
+    {
+      "id": "a942",
+      "title": "M-Pets Travel Drinking Bottle for Dogs",
+      "price": 379,
+      "imgSrc": "https://www.petsy.online/cdn/shop/products/M-PetsTravelDrinkingBottleforDogs.png?v=1626018621&width=832",
+      "category": "dog",
       "count": 1
     }
   ],
@@ -261,6 +230,14 @@
       "price": 13050,
       "imgSrc": "https://www.all4pets.in/wp-content/uploads/2022/10/2.jpg",
       "category": "both",
+      "count": 1
+    },
+    {
+      "id": "cca9",
+      "title": "M-Pets Travel Drinking Bottle for Dogs",
+      "price": 379,
+      "imgSrc": "https://www.petsy.online/cdn/shop/products/M-PetsTravelDrinkingBottleforDogs.png?v=1626018621&width=832",
+      "category": "dog",
       "count": 1
     }
   ],

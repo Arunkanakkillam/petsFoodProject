@@ -10,8 +10,8 @@ export const Caart = () => {
     const navigate = useNavigate()
 
     return (
-        <>
-            {cartSectn == null || cartSectn.length == 0 ? <h1>YOUR CART IS EMPTY</h1> :
+        <div>
+            {cartSectn == null || cartSectn.length == 0 ? <div className="d-flex justify-content-center"><h1>YOUR CART IS EMPTY</h1></div>:
                 (<>
                     <section className="d-flex overflow-auto flex-nowrap">
                         {cartSectn.map((carrt, i) => (
@@ -52,6 +52,6 @@ export const Caart = () => {
                 )
             }
 
-        </>
+        </div>
     )
 }

@@ -31,7 +31,9 @@ export const Payment = () => {
         setState((prevState) => ({
             ...prevState,
             [name]: value,
-            price:cartSectn.reduce((acc, item) => acc + item.price, 0)
+            price:cartSectn.reduce((acc, item) => acc + item.price, 0),
+            orderno:Math.trunc(10000000000*(Math.random(5)))
+
         }));
     };
     console.log(state)

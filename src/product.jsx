@@ -8,6 +8,18 @@ export const Product = ()=>{
     const [imgSrc,setimgSrc] = useState('')
     const [category,setCategory]=useState('')
 
+
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        addProduct(title, price, imgSrc, category);
+        setTitle('');
+        setPrice('');
+        setimgSrc('');
+        setCategory('');
+    };
+
     return <>
     <header className="d-flex justify-content-center">
         <div className="col-3 bg-success text-white m-5 d-flex justify-content-center rounded">
@@ -16,6 +28,87 @@ export const Product = ()=>{
         </h1>
         </div>
     </header>
+    <div className="d-flex justify-content-center">
+           
+            <button
+                type="button"
+                className="btn btn-primary"
+                data-bs-toggle="modal"
+                data-bs-target="#addProductModal"
+            >
+                Add New Product
+            </button>
+
+     
+            <div
+                className="modal fade"
+                id="addProductModal"
+                tabIndex="-1"
+                aria-labelledby="addProductModalLabel"
+                aria-hidden="true"
+            >
+                <div className="modal-dialog">
+                    <div className="modal-content bg-dark text-white">
+                        <div className="modal-header">
+                            <h5 className="modal-title" id="addProductModalLabel">
+                                Add New Product
+                            </h5>
+                            <button
+                                type="button"
+                                className="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close"
+                            ></button>
+                        </div>
+                        <div className="modal-body">
+                          
+                            <form onSubmit={handleSubmit}>
+                                <label htmlFor="name">Product title</label>
+                                <input
+                                    type="text"
+                                    className="form-control mb-3"
+                                    value={title}
+                                    onChange={(e) => setTitle(e.target.value)}
+                                    placeholder="Product title"
+                                    required
+                                />
+                                <label htmlFor="price">Price</label>
+                                <input
+                                    type="text"
+                                    className="form-control mb-3"
+                                    value={price}
+                                    onChange={(e) => setPrice(e.target.value)}
+                                    placeholder="Price"
+                                    required
+                                />
+                                <label htmlFor="imgSrc">Image link</label>
+                                <input
+                                    type="text"
+                                    className="form-control mb-3"
+                                    value={imgSrc}
+                                    onChange={(e) => setimgSrc(e.target.value)}
+                                    placeholder="Image link"
+                                    required
+                                />
+                                <label htmlFor="category">Category</label>
+                                <input
+                                    type="text"
+                                    className="form-control mb-3"
+                                    value={category}
+                                    onChange={(e) => setCategory(e.target.value)}
+                                    placeholder="Mention dog/cat/both category"
+                                    required
+                                />
+
+                                <button className="btn btn-success mt-3" type="submit">
+                                    Submit
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     <section className="p-5">
         <table>
             <thead>
@@ -49,48 +142,7 @@ export const Product = ()=>{
           
         </table>
     </section>
-    <section className="d-flex justify-content-center">
     
-        <form className="d-flex justify-content-center flex-column col-4 p-5 bg-dark text-white">
-        <h3>Add new products</h3>
-            <label htmlFor="name" >Product title</label>
-            <input 
-            type="text"
-            value={title}
-            onChange={(e)=>setTitle(e.target.value)}
-            placeholder="product title"
-            required
-            />
-            <label htmlFor="name">Price</label>
-             <input 
-            type="text"
-            value={price}
-            onChange={(e)=>setPrice(e.target.value)}
-            placeholder="Price"
-            required
-            />
-            <label htmlFor="name">image link</label>
-             <input 
-            type="text"
-            value={imgSrc}
-            onChange={(e)=>setimgSrc(e.target.value)}
-            placeholder="image link"
-            required
-            />
-            <label htmlFor="name">Category</label>
-               <input 
-            type="text"
-            value={category}
-            onChange={(e)=>setCategory(e.target.value)}
-            placeholder="mention dog/cat/both category"
-            required
-            />
-
-
-            <button className="btn btn-success mt-5 rounded" type="submit" onClick={(e)=>{e.preventDefault()
-                addProduct(title,price,imgSrc,category)}}>submit</button>
-        </form>
-    </section>
     </>
 }
 

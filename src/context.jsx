@@ -13,6 +13,7 @@ export const Cart = ({ children }) => {
     const [userr, setUserr] = useState([])
     const nav = useNavigate();
     const [updt,setUpdt]=useState([])
+    const [order,setOrder]=useState([])
     let id
 
     if (localStorage.getItem("user")) {
@@ -65,30 +66,36 @@ let allProducts
    
 
     const payNow = (deliveryDetails, paymentInfo) => {
-
-        console.log(deliveryDetails)
-        console.log(paymentInfo)
+        console.log(deliveryDetails);
+        console.log(paymentInfo);
+    
         if (paymentInfo.cardName && paymentInfo.cardNumber && paymentInfo.cvv) {
             axios.get(`http://localhost:8000/users/${id}`)
-            .then(response => {
-              const userData = response.data;
-              const updatedUserData = {
-                ...userData,
-                orders: [...(userData.orders || []), deliveryDetails]
-              };
-              return axios.put(`http://localhost:8000/users/${id}`, updatedUserData);
-            })
-            .then(() => {
-              toast.success('Order placed successfully');
-            })
-            .catch(error => {
-              console.error('Error placing order:', error);
-              toast.error('Failed to place order');
-            });
+                .then(response => {
+                    const userData = response.data;
+                    const updatedUserData = {
+                        ...userData,
+                        orders: [...(userData.orders || []), deliveryDetails],
+                    };
+    
+                    return axios.put(`http://localhost:8000/users/${id}`, updatedUserData); 
+                })
+                .then(response => {
+                    setOrder(response.data.orders || []); 
+                    console.log('Updated orders:', response.data.orders);
+                    toast.success('Order placed successfully');
+                    nav('/order');
+                    return axios.patch(`http://localhost:8000/users/${id}`, { cart: '' })
+                })
+                .catch(error => {
+                    console.error('Error placing order:', error);
+                    toast.error('Failed to place order');
+                });
         } else {
-          toast.warning('Enter correct payment details');
+            toast.warning('Enter correct payment details');
         }
-      };
+    };
+    
       
 
 
@@ -290,28 +297,39 @@ let allProducts
             alert('enter "dog" or "cat"')
         }
     }
+
+
+
+
+
+    
     const addtoCrt = (item) => {
-
-        if (id == null) {
-            alert("please Login")
-            nav('/signIn')
+        if (!id) {
+            alert("Please log in");
+            nav('/signIn');
+            return;
         }
-
+    
         axios.get(`http://localhost:8000/users/${id}`)
             .then(response => {
-                const cartData = response.data.cart;
-                if (cartData.map(val => val.id).includes(item.id)) {
-                    alert('Item already exists in your cart!')
-                    return
+                const user = response.data;
+                const cartData = user.cart || []
+                const itemExists = cartData.some(val => val.id === item.id);
+                if (itemExists) {
+                    alert('Item already exists in your cart!');
+                    return;
                 }
-
-
                 const updatedCart = [...cartData, item];
-                return axios.patch(`http://localhost:8000/users/${id}`, { cart: updatedCart })
+    
+                return axios.patch(`http://localhost:8000/users/${id}`, { cart: updatedCart });
             })
-            .then(() => nav('/cart'))
-            .catch(err => console.log("Error:", err))
-    }
+            .then(() => {
+                nav('/cart');
+            })
+            .catch(err => console.error("Error adding item to cart:", err));
+    };
+    
+
 
 
     const deleteItem = (indexToRemove) => {
@@ -361,7 +379,8 @@ let allProducts
             update,
             updt,
             updateProduct,
-            payNow
+            payNow,
+            order
         }}>
             {children}
         </globlValue.Provider>

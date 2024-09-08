@@ -11,6 +11,8 @@ import { Admin } from "./admin"
 import { UserManagement } from "./userManagement"
 import { Product } from "./product"
 import { Update } from "./update"
+import { Order } from "./order"
+import MapView from "./map"
 
 
 
@@ -32,6 +34,8 @@ function App() {
   <Route path="/userManagement" element={<UserManagement/>}/>
   <Route path="/product"  element={<Product/>}/>
   <Route path="/update" element={<Update/>}/>
+  <Route path="order" element={<Order/>}/>
+  <Route path="map" element={<MapView/>}/>
 </Routes>
 
     </>
