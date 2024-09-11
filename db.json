@@ -29,9 +29,17 @@
         {
           "id": "5",
           "title": "Pets at Home Value Degradable Dog Poop Bags 200 Pack",
-          "price": 800,
+          "price": 1600,
           "imgSrc": "/poopbg.jpg",
           "category": "dog",
+          "count": 2
+        },
+        {
+          "id": "6",
+          "title": "Pets at Home Fruit Doughnut Dog Toy",
+          "price": 100,
+          "imgSrc": "/Toy.jpg",
+          "category": "both",
           "count": 1
         }
       ]
