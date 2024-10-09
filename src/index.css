@@ -58,7 +58,7 @@ a{
     height: 80px;
  }
 
- /* Gradient background for sections */
+ 
 .section-intro {
     background: linear-gradient(45deg, #f3ec78, #af4261);
     height: 200px;
@@ -69,7 +69,7 @@ a{
     color: white;
   }
   
-  /* Category card styling */
+
   .card-category {
     width: 150px;
     margin: 20px;
@@ -86,7 +86,7 @@ a{
     height: auto;
   }
   
-  /* Featured products */
+ 
   .featured-text {
     font-size: 2.5rem;
     color: #343a40;
@@ -107,13 +107,13 @@ a{
     height: auto;
   }
   
-  /* Top products */
+
   .top-products-title {
     font-size: 2.5rem;
     color: #ff6f61;
   }
   
-  /* Adjust the product card to use Flexbox */
+  
 .product-card {
     width: 100%;
     max-width: 300px;
@@ -137,16 +137,16 @@ a{
     height: auto;
   }
   
-  /* Flex-grow ensures the title and price take up available space */
+ 
   .product-details {
     flex-grow: 1;
   }
   
-  /* The button will be pushed to the bottom of the card */
+  
   .btn-add {
     background-color: #ff6f61;
     color: white;
-    margin-top: auto; /* Ensures the button stays at the bottom */
+    margin-top: auto; 
     transition: background-color 0.3s ease;
   }
   
@@ -178,7 +178,7 @@ a{
     }
   
   
-  /* Responsive Design - Adjust layout for mobile devices */
+
   @media (max-width: 576px) {
     .section-intro {
       height: 120px;
@@ -201,8 +201,57 @@ a{
     }
   }
   
-  /* Smooth scroll behavior */
+ 
   html {
     scroll-behavior: smooth;
+  }
+  
+.navbar {
+    background: linear-gradient(90deg, rgba(255, 105, 180, 1) 0%, rgba(255, 0, 128, 1) 100%);
+  }
+  
+  
+  .btn-secondary {
+    background-color: #ff6f61;
+    border: none;
+    transition: background-color 0.3s;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #ff3b3b;
+  }
+  
+  
+  .dropdown-menu {
+    background-color: #fff;
+    transition: opacity 0.3s ease;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #ff6f61;
+    color: white;
+  }
+  
+
+  .animated-section {
+    background-color: rgba(255, 238, 220, 0.8);
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  
+  @media (max-width: 576px) {
+    .navbar {
+      padding: 10px;
+    }
+  
+    .col-1 img {
+      width: 50%;
+      height: auto;
+    }
+  
+    .dropdown-toggle img {
+      width: 30%;
+    }
   }
   
