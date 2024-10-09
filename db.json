@@ -6,7 +6,16 @@
       "password": "asdfgha",
       "isBlocked": false,
       "Name": "arun k",
-      "cart": [],
+      "cart": [
+        {
+          "id": "6",
+          "title": "Pets at Home Fruit Doughnut Dog Toy",
+          "price": 100,
+          "imgSrc": "/Toy.jpg",
+          "category": "both",
+          "count": 1
+        }
+      ],
       "orders": [
         {
           "name": "arun k",
@@ -16,6 +25,15 @@
           "code": "567890",
           "address": "fkl,asdfasd",
           "email": "gbhjkl;"
+        },
+        {
+          "name": "arun k",
+          "price": 1000,
+          "orderno": 8547177543,
+          "city": "fgdfgsdfg",
+          "code": "sdfgdafg",
+          "address": "dfaga",
+          "email": "arunkanakkillam70@gmail.com"
         }
       ]
     },
