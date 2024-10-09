@@ -154,7 +154,7 @@ a{
     background-color: #ff3b3b;
   }
   
-  /* Responsive design */
+
   @media (max-width: 576px) {
     .product-card {
       max-width: 200px;
@@ -205,26 +205,35 @@ a{
   html {
     scroll-behavior: smooth;
   }
-  
+
+
 .navbar {
     background: linear-gradient(90deg, rgba(255, 105, 180, 1) 0%, rgba(255, 0, 128, 1) 100%);
   }
   
+ 
+  .logo {
+    height: 50px;
+  }
   
-  .btn-secondary {
+ 
+  .btn-primary {
     background-color: #ff6f61;
     border: none;
     transition: background-color 0.3s;
   }
   
-  .btn-secondary:hover {
+  .btn-primary:hover {
     background-color: #ff3b3b;
   }
   
   
   .dropdown-menu {
     background-color: #fff;
-    transition: opacity 0.3s ease;
+  }
+  
+  .dropdown-item {
+    color: #333;
   }
   
   .dropdown-item:hover {
@@ -232,26 +241,60 @@ a{
     color: white;
   }
   
-
-  .animated-section {
-    background-color: rgba(255, 238, 220, 0.8);
-    padding: 20px;
-    border-radius: 5px;
+ 
+  .icon-img {
+    width: 30px; 
+    height: 30px; 
+    object-fit: contain; 
+  }
+  
+ 
+  .basket-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
   }
   
   
   @media (max-width: 576px) {
     .navbar {
-      padding: 10px;
+      padding: 5px; 
     }
   
-    .col-1 img {
-      width: 50%;
-      height: auto;
+    .navbar-brand {
+      margin-left: 5px; 
     }
   
-    .dropdown-toggle img {
-      width: 30%;
+    .icon-img {
+      width: 25px; 
+      height: 25px; 
+    }
+  
+    h1 {
+      font-size: 1.5rem; 
     }
   }
+ 
+.icon-img {
+    width: 40px;
+    height: 40px; 
+    object-fit: contain; 
+    transition: transform 0.3s;
+  }
   
+  .icon-img:hover {
+    transform: scale(1.1); 
+  }
+  
+
+  @media (max-width: 576px) {
+    .icon-img {
+      width: 30px; 
+      height: 30px; 
+    }
+  
+    h1 {
+      font-size: 1.5rem; 
+    }
+  }
+ 

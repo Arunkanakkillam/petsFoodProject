@@ -4,8 +4,8 @@ import { useState, useEffect, useContext } from "react";
 import { globlValue } from "./context";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "./footer";
-import AOS from 'aos';  // Import AOS for animations
-import 'aos/dist/aos.css'; // Import AOS CSS
+import AOS from 'aos';  
+import 'aos/dist/aos.css'; 
 
 export const Home = () => {
   const [data, setData] = useState([]);
@@ -14,7 +14,7 @@ export const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    AOS.init({ duration: 1000 }); // Initialize AOS for animations
+    AOS.init({ duration: 1000 }); 
     const fetchData = async () => {
       try {
         const response = await axios.get('http://localhost:8000/products');
