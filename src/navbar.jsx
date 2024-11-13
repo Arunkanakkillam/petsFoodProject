@@ -1,23 +1,24 @@
 import { Link, useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-import { useContext } from "react";
-import { globlValue } from "./context";
+// import { useContext } from "react";
+// import { globlValue } from "./context";
 
 export const Navbar = () => {
-  const { search } = useContext(globlValue);
+  // const { search } = useContext(globlValue);
   const navigate = useNavigate();
-  let log = localStorage.getItem('user');
+  let log = localStorage.getItem('name');
 
   const hndlLgout = () => {
-    localStorage.removeItem('user');
+    localStorage.removeItem('name');
+    localStorage.removeItem('token');
     navigate('/');
   };
 
   const hndlLogin = () => {
     navigate('/signIn');
   };
-
+  const nm=localStorage.getItem("name");
   return (
     <>
       <header className="z-2">
@@ -66,7 +67,7 @@ export const Navbar = () => {
                     style={{ cursor: 'pointer' }}
                   >
                     {log ? (
-                      <span className="me-2">{JSON.parse(localStorage.getItem('user')).name}</span>
+                      <span className="me-2">{nm}</span>
                     ) : (
                       <span className="me-2">Login</span>
                     )}
@@ -75,7 +76,7 @@ export const Navbar = () => {
                   <ul className="dropdown-menu" aria-labelledby="userDropdown">
                     {log ? (
                       <>
-                        <li><Link className="dropdown-item" to="/settings">Admin</Link></li>
+                        <li><Link className="dropdown-item" to="/settings">{nm}</Link></li>
                         <li><hr className="dropdown-divider" /></li>
                         <li><a className="dropdown-item" href="#" onClick={hndlLgout}>Logout</a></li>
                       </>

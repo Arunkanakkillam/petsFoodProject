@@ -1,32 +1,28 @@
 import { Navbar } from "./Navbar";
-import axios from "axios";
-import { useState, useEffect, useContext } from "react";
-import { globlValue } from "./context";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "./footer";
-import AOS from 'aos';  
-import 'aos/dist/aos.css'; 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProduct } from "./Slices/ProductSlice";
 
 export const Home = () => {
-  const [data, setData] = useState([]);
-  const [sttc, setSttc] = useState([]);
-  const { addtoCrt } = useContext(globlValue);
+
+
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { Products, status } = useSelector((state) => state.product)
 
   useEffect(() => {
-    AOS.init({ duration: 1000 }); 
+    AOS.init({ duration: 1000 });
     const fetchData = async () => {
-      try {
-        const response = await axios.get('http://localhost:8000/products');
-        const res = await axios.get('http://localhost:8000/sttcProducts');
-        setData(response.data);
-        setSttc(res.data);
-      } catch (error) {
-        console.error("error in fetching data");
+      if (status === 'idle') {
+        dispatch(fetchProduct());
       }
     };
     fetchData();
-  }, []);
+  }, [status, dispatch]);
 
   return (
     <>
@@ -39,6 +35,7 @@ export const Home = () => {
         <div className="card-category" onClick={() => navigate('/dog')} data-aos="zoom-in">
           <img className="category-image" src="/dog.png" alt="Dogs" />
           <h5>Dogs</h5>
+          {console.log(Products)}
         </div>
         <div className="card-category" onClick={() => navigate('/cats')} data-aos="zoom-in">
           <img className="category-image" src="/cat.png" alt="Cats" />
@@ -51,10 +48,12 @@ export const Home = () => {
       </section>
 
       <section className="d-flex overflow-auto flex-nowrap" data-aos="fade-up">
-        {sttc.map((product) => (
-          <div key={product.id} className="featured-card">
-            <img src={product.img} alt={product.title} className="featured-image" />
-          </div>
+        {Products && Products.length > 0 && Products.map((prod, index) => (
+          prod.productCategoryId == 4 ? (
+            <div key={index} className="featured-card">
+              <img src={prod.image} alt={prod.productName} className="featured-image" />
+            </div>
+          ) : null
         ))}
       </section>
 
@@ -63,19 +62,22 @@ export const Home = () => {
       </section>
 
       <section className="d-flex flex-wrap justify-content-center" id="products" data-aos="fade-up">
-  {data.map((product) => (
-    <div key={product.id} className="product-card d-flex flex-column">
-      <img src={product.imgSrc} alt={product.title} className="product-image" />
-      <div className="product-details flex-grow-1">
-        <h4>{product.title}</h4>
-        <p>Rs-{product.price}</p>
-      </div>
-      <button className="btn btn-dark btn-add mt-auto" onClick={() => addtoCrt(product)}>
-        Add to cart
-      </button>
-    </div>
-  ))}
-</section>
+        {Products && Products.length > 0 && Products.map((prod, ind) => (
+
+          prod.productCategoryId != 4 ? (
+            <div key={ind} className="product-card d-flex flex-column">
+              <img src={prod.image} alt={prod.productName} className="product-image" />
+              <div className="product-details flex-grow-1">
+                <h4>{prod.productName}</h4>
+                <p>Rs-{prod.price}</p>
+              </div>
+              <button className="btn btn-dark btn-add mt-auto">
+                Add to cart
+              </button>
+            </div>
+          ) : null
+        ))}
+      </section>
 
 
       <section className="pt-5 bg-dark">

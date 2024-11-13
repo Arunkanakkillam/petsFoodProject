@@ -1,6 +1,8 @@
 import React, {  useState } from 'react';
-import { json, Link,useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import {  Link,useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { loginCustomer } from './Slices/LoginSlice';
 
 
 
@@ -8,36 +10,32 @@ export const Signin = () => {
 const[mail,setMail]=useState('')
 const[passs,setPass]=useState('')
 
-
+const dispatch=useDispatch();
+const{login,status}=useSelector((state)=>state.logins);
 const navigate = useNavigate();
 
 let isValid = false;
 
 const handleSignIn = async (e) => {
     e.preventDefault()
-    try{
-const Valid=await fetch(`http://localhost:8000/users`)
-const users=await Valid.json()
-const user=users.find(user=>user.email===mail&&user.password===passs)
-if(user.isBlocked==true){
-    toast.warning('user blocked by admin contact us for further details')
-    navigate('/')
+   dispatch(loginCustomer({email:mail,password:passs}));
+//    console.log(login);
+    // if(loginCustomer.fulfilled.match(rsp)){
+    //     const{token,name}=rsp.payload;
+    //     localStorage.setItem("token",token)
+    //     localStorage.setItem("name",name)
+    //     toast.success("login successfull");
+    //     navigate("/");
+    // }
+    
 }
-else if(user){   
-    localStorage.setItem('user', JSON.stringify({id: user.id, name: user.Name}))
-    alert('successfully signed in')
-    navigate('/')
-}
-else{
-    alert('please register or enter valid details')
-}
+if(login)
+    {
+        localStorage.setItem("token",login.token);
+        localStorage.setItem("name",login.name);
+        navigate("/")
     }
-    catch{
-        console.error("Error:", error);
-        alert("Failed to login. Please try again.");
-    }
-
-}
+    console.log(login)
 
     return (
 

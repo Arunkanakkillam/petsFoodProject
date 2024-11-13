@@ -1,7 +1,9 @@
 import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom"
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { postCustomer } from "./Slices/RegSlice";
 
 export const Register = () => {
   const navigate = useNavigate();
@@ -9,6 +11,10 @@ export const Register = () => {
   const [pass, setPass] = useState("");
   const [name, setName] = useState("")
   const [confirmPass, setConfirmPass] = useState("");
+  const [mob,setMob]=useState(0);
+
+  const dispatch=useDispatch();
+  const{registers,status}=useSelector((state)=>state.register);
 
   const validate = async (e) => {
     e.preventDefault();
@@ -18,35 +24,14 @@ export const Register = () => {
       alert('Enter valid email or password');
       return;
     }
-
-    try {
-
-
-      const response = await fetch(`http://localhost:8000/users?email=${mail}`);
-      const users = await response.json();
-      console.log(users)
-      if (users.length > 0) {
-        toast.warning("User already exists");
-        navigate("/signIn");
-        return;
+      dispatch (postCustomer({name:name,email:mail,password:confirmPass,phone:mob}));
+      if(status=="succeeded"){
+       toast.success("you have successfullly registered");
+        navigate("/signin")
       }
-
-      const newUser = { email: mail, password: pass,isBlocked:false, Name: name, cart: [] };
-      await fetch("http://localhost:8000/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(newUser),
-      });
-
-      toast.success("Registration successful")
-      navigate("/signIn");
-    } catch (error) {
-      console.error("Error:", error);
-      toast.warning("Failed to register. Please try again.");
-    }
   }
+
+
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100">
@@ -99,6 +84,18 @@ export const Register = () => {
               placeholder="Confirm your password"
               value={confirmPass}
               onChange={(e) => setConfirmPass(e.target.value)}
+              required
+            />
+          </div>
+          <div className="mb-3">
+            <label htmlFor="mobile" className="form-label">Phone</label>
+            <input
+              type="text"
+              className="form-control"
+              id="mobile"
+              value={mob}
+              onChange={(e) => setMob(e.target.value)}
+              placeholder="Enter your mob number:"
               required
             />
           </div>
