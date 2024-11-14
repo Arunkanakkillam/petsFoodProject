@@ -1,12 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-// import { useContext } from "react";
-// import { globlValue } from "./context";
+import { useDispatch } from "react-redux";
+import { searchProduct } from "./Slices/ProductSlice";
 
 export const Navbar = () => {
-  // const { search } = useContext(globlValue);
   const navigate = useNavigate();
+  const dispatch=useDispatch();
   let log = localStorage.getItem('name');
 
   const hndlLgout = () => {
@@ -18,7 +18,8 @@ export const Navbar = () => {
   const hndlLogin = () => {
     navigate('/signIn');
   };
-  const nm=localStorage.getItem("name");
+  const nm = localStorage.getItem("name");
+
   return (
     <>
       <header className="z-2">
@@ -44,8 +45,9 @@ export const Navbar = () => {
               <form
                 className="d-flex mx-auto col-md-5 col-12"
                 onSubmit={(e) => {
-                  e.preventDefault();
-                  search(e.target.elements.search.value);
+                  e.preventDefault();                 
+                    dispatch(searchProduct(e.target.elements.search.value)); 
+                    navigate('/product')
                 }}
               >
                 <input
@@ -57,7 +59,7 @@ export const Navbar = () => {
                 <button className="btn btn-primary" type="submit">Search</button>
               </form>
 
-              <div className="col-auto">
+              <div className="col-2">
                 <div className="dropdown">
                   <div
                     className="dropdown-toggle d-flex align-items-center"
@@ -90,7 +92,7 @@ export const Navbar = () => {
                 </div>
               </div>
 
-              <div className="col-auto">
+              <div className="col-2">
                 <div
                   className="basket-icon d-flex align-items-center"
                   onClick={() =>
@@ -101,12 +103,24 @@ export const Navbar = () => {
                   <img src="/customer.png" className="icon-img" alt="Basket" />
                 </div>
               </div>
+
+  <div className="col-2">
+  {log ? (
+    <div
+      className="fas fa-heart"
+      onClick={() => navigate("/userWishlist")}
+      style={{ fontSize: '2rem', color: 'red', cursor: 'pointer' }}
+    ></div>
+  ) : (
+    <i className="fas fa-heart icon-img" style={{ fontSize: '2rem', color: 'red' }}></i>
+  )}
+</div>
+
             </div>
           </div>
 
-        
           <div className="container-fluid d-flex justify-content-center mt-2">
-            <Link to="#products" className="mx-3">
+            <Link to="/product" className="mx-3">
               <img src="icons-shop.gif" className="icon-img" alt="Shop" title="Shop" />
             </Link>
             <Link to="#foot" className="mx-3">

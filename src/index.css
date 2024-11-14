@@ -297,4 +297,8 @@ a{
       font-size: 1.5rem; 
     }
   }
- 
+  .wishlist-icon i {
+    font-size: 1.5rem;
+    color: #000000;
+  }
+  

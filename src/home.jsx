@@ -1,4 +1,4 @@
-import { Navbar } from "./Navbar";
+import { Navbar } from "./navbar";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Footer } from "./footer";
@@ -6,6 +6,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProduct } from "./Slices/ProductSlice";
+import { addToCart } from "./Slices/CartSlice";
 
 export const Home = () => {
 
@@ -23,6 +24,10 @@ export const Home = () => {
     };
     fetchData();
   }, [status, dispatch]);
+  const cartmng=(id)=>{
+    dispatch(addToCart(id));
+    navigate("/cart");
+  }
 
   return (
     <>
@@ -71,7 +76,8 @@ export const Home = () => {
                 <h4>{prod.productName}</h4>
                 <p>Rs-{prod.price}</p>
               </div>
-              <button className="btn btn-dark btn-add mt-auto">
+              <button className="btn btn-dark btn-add mt-auto" onClick={(e)=>{e.preventDefault() 
+                cartmng(prod.productId)}}>
                 Add to cart
               </button>
             </div>
