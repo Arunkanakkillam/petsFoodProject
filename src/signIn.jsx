@@ -14,8 +14,6 @@ const dispatch=useDispatch();
 const{login,status}=useSelector((state)=>state.logins);
 const navigate = useNavigate();
 
-let isValid = false;
-
 const handleSignIn = async (e) => {
     e.preventDefault()
    dispatch(loginCustomer({email:mail,password:passs}));
@@ -33,7 +31,14 @@ if(login)
     {
         localStorage.setItem("token",login.token);
         localStorage.setItem("name",login.name);
-        navigate("/")
+        toast.success("login successfull");
+        if(localStorage.getItem("name")=="Admin User"){
+            navigate("/admin");
+        }
+        else{
+            navigate("/");
+        }
+        
     }
     console.log(login)
 

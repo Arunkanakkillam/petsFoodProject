@@ -14,6 +14,7 @@ export const Home = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { Products, status } = useSelector((state) => state.product)
+  console.log(Products);
 
   useEffect(() => {
     AOS.init({ duration: 1000 });

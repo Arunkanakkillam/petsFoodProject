@@ -30,7 +30,9 @@ export const deleteProduct = createAsyncThunk("ProductSlice/deleteProduct", asyn
 });
 
 export const updateProduct = createAsyncThunk("ProductSlice/updateProduct", async (productid, product, { dispatch }) => {
-    const response = await apiClient.put(`https://localhost:7282/api/Product/update product/`, productid, product);
+
+   
+    const response = await apiClient.put(`https://localhost:7282/api/Product/update_product?id=${productid}`, product);
     dispatch(fetchProduct());
     return response.data;
 });
@@ -44,7 +46,7 @@ export const deleteCategory = createAsyncThunk("ProductSlice/deleteCategory", as
     dispatch(fetchProduct());
     return response.data;
 });
-export const fetchProductById = createAsyncThunk("ProductSlice/fetchProductById", async (productid, { dispatch }) => {
+export const fetchProductById = createAsyncThunk("ProductSlice/fetchProductById", async (productid) => {
     const response = await apiClient.get(`https://localhost:7282/api/Product/GetProductsById/${productid}`);
     return response.data;
 });

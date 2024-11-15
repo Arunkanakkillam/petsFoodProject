@@ -6,16 +6,17 @@ import { Caart } from "./cart"
 // import { Payment } from "./payment"
 // import { Dogs } from "./dog"
 // import { Cats } from "./cats"
-import { AdminLogin } from "./adminLogin"
-// import { Admin } from "./admin"
+import { Admin } from "./admin"
 // import { UserManagement } from "./userManagement"
 import { Product } from "./product"
-// import { Update } from "./update"
+import { Update } from "./update"
 // import { Order } from "./order"
 import MapView from "./map"
 import { Provider } from "react-redux"
 import { store } from "./Store/Store"
 import { Wishlist } from "./userWishlist"
+import { AdminProducts } from "./AdminProduct"
+
 
 
 function App() {
@@ -33,11 +34,11 @@ function App() {
   {/* <Route path="/payment" element={<Payment/>}/> */}
   {/* <Route path="/dog" element={<Dogs/>}/> */}
   {/* <Route path="/cats" element={<Cats/>}/> */}
-  <Route path="/adminLogin" element={<AdminLogin/>}/>  
-  {/* <Route path="/admin" element={<Admin/>}/> */}
+  <Route path="/admin" element={<Admin/>}/>
+  <Route path="/adminProduct" element={<AdminProducts/>}/>
   {/* <Route path="/userManagement" element={<UserManagement/>}/> */}
   <Route path="/product"  element={<Product/>}/>
-  {/* <Route path="/update" element={<Update/>}/> */}
+  <Route path="/update/:Id" element={<Update/>}/>
   {/* <Route path="order" element={<Order/>}/>  */}
   <Route path="map" element={<MapView/>}/>
 </Routes>

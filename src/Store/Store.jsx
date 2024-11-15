@@ -3,7 +3,8 @@ import  ProductSlice  from "../Slices/ProductSlice";
 import  registerSlice  from "../Slices/RegSlice";
 import  loginSlice  from "../Slices/LoginSlice";
 import  cartSlice  from "../Slices/CartSlice";
-import { wishlistSlice } from "../Slices/WishlistSlice";
+import  wishlistSlice  from "../Slices/WishlistSlice";
+import  adminSlice  from "../Slices/adminSlice";
 
 export const store=configureStore({
     reducer:{
@@ -11,6 +12,7 @@ export const store=configureStore({
         register:registerSlice,
         logins:loginSlice,
         carts:cartSlice,
-        wishlists:wishlistSlice.reducer
+        wishlists:wishlistSlice,
+        admin:adminSlice
     }
 })

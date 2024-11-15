@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { useDispatch } from "react-redux";
 import { searchProduct } from "./Slices/ProductSlice";
+import { toast } from "react-toastify";
 
 export const Navbar = () => {
   const navigate = useNavigate();
@@ -12,6 +13,7 @@ export const Navbar = () => {
   const hndlLgout = () => {
     localStorage.removeItem('name');
     localStorage.removeItem('token');
+    toast.success('logout success');
     navigate('/');
   };
 
@@ -85,7 +87,6 @@ export const Navbar = () => {
                     ) : (
                       <>
                         <li><a className="dropdown-item" href="#" onClick={hndlLogin}>Login</a></li>
-                        <li><Link className="dropdown-item" to="/adminLogin">Admin</Link></li>
                       </>
                     )}
                   </ul>
