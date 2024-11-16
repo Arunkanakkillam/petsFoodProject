@@ -45,7 +45,19 @@ export const Update = () => {
    
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(updateProduct(Id, product));
+        const formData = new FormData();
+        formData.append("ProductName", productById.ProductName);
+        formData.append("Price", productById.Price);
+        formData.append("IsAvailable", productById.IsAvailable);
+        formData.append("ProductDescription", productById.ProductDescription);
+        formData.append("ProductCategoryId", productById.ProductCategoryId);
+        formData.append("ProductId", productById.ProductId);
+        formData.append("Quandity", productById.Quandity);
+        formData.append("Image", productById.Image); 
+        if (product.img) {
+          formData.append("img", productById.img); 
+        }
+        dispatch(updateProduct(Id, formData));
         nav('/adminProduct'); 
     };
 

@@ -31,6 +31,7 @@ if(login)
     {
         localStorage.setItem("token",login.token);
         localStorage.setItem("name",login.name);
+        localStorage.setItem("userid",login.user_Id);
         toast.success("login successfull");
         if(localStorage.getItem("name")=="Admin User"){
             navigate("/admin");

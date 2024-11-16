@@ -48,7 +48,7 @@ export const Caart = () => {
                     <section>
                         <div className="m-3">
                             <h4>total price:{cart.reduce((accumulator, value) => (value.total + accumulator), 0)}</h4>
-                            <button onClick={() => navigate('/payment')}>
+                            <button onClick={() => navigate('/orderredux')}>
                                 Buy now
                             </button>
                         </div>

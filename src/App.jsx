@@ -16,6 +16,7 @@ import { Provider } from "react-redux"
 import { store } from "./Store/Store"
 import { Wishlist } from "./userWishlist"
 import { AdminProducts } from "./AdminProduct"
+import { OrderRedux } from "./orderredux"
 
 
 
@@ -39,6 +40,7 @@ function App() {
   {/* <Route path="/userManagement" element={<UserManagement/>}/> */}
   <Route path="/product"  element={<Product/>}/>
   <Route path="/update/:Id" element={<Update/>}/>
+  <Route path="/orderredux" element={<OrderRedux/>}/>
   {/* <Route path="order" element={<Order/>}/>  */}
   <Route path="map" element={<MapView/>}/>
 </Routes>

@@ -13,6 +13,7 @@ export const Navbar = () => {
   const hndlLgout = () => {
     localStorage.removeItem('name');
     localStorage.removeItem('token');
+    localStorage.removeItem("userid");
     toast.success('logout success');
     navigate('/');
   };
