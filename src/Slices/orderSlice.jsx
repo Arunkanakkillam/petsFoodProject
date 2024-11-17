@@ -20,7 +20,11 @@ export const payment =createAsyncThunk("ordwerSlice/payment",async(fromRazor)=>{
     return response.data;
 });
 export const placeOrder=createAsyncThunk("orderSlice/placeOrder",async(credentials)=>{
-    const response=await apiClient.post("https://localhost:7282/api/Order/place-order",credentials);
+    console.log("credential in api",credentials)
+    const response=await apiClient.post(`https://localhost:7282/api/Order/place-order`,credentials, {
+        headers: {
+          "Content-Type": "application/json", 
+        }});
     return response.data;
 });
 
@@ -53,15 +57,18 @@ export const sliceOrder=createSlice({
             .addCase(payment.rejected,(state,action)=>{
                 state.error=action.payload;
             });
-        builder.addCase(placeOrder.pending,(state)=>{
+        builder.addCase(placeOrder.pending,(state,action)=>{
+                console.log(action.payload)
             state.status="pwndingorderplacing";
         })    
 
-            .addCase(placeOrder.fulfilled,(state)=>{
+            .addCase(placeOrder.fulfilled,(state,action)=>{
+                console.log(action.payload)
+
                 state.status="orderplaced";
             })
             .addCase(placeOrder.rejected,(state,action)=>{
-                state.status=action.payload;
+                state.error=action.payload;
             });
     }
 })
