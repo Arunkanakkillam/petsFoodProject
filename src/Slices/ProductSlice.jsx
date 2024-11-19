@@ -7,6 +7,7 @@ const initialState = {
     search: [],
     isSearchClicked:false,
     productById: null,
+    category:[],
     status: 'idle',
     error: null
 };
@@ -50,7 +51,11 @@ export const fetchProductById = createAsyncThunk("ProductSlice/fetchProductById"
     const response = await apiClient.get(`https://localhost:7282/api/Product/GetProductsById/${productid}`);
     return response.data;
 });
-
+export const fetchByCategoryId=createAsyncThunk("ProductSlice/fetchCategory",async({CategoryId,pageno,pagesize})=>{
+    console.log(CategoryId,pageno,pagesize)
+    const response =await apiClient.get(`https://localhost:7282/api/Product/GetProductsByCategoryId/${CategoryId}/${pageno}/${pagesize}`);
+    return response.data;
+});
 
 
 export const ProductSlice = createSlice({
@@ -135,7 +140,17 @@ export const ProductSlice = createSlice({
             })
             .addCase(fetchProductById.rejected, (state, action) => {
                 state.error = action.payload;
-            })
+            });
+        builder.addCase(fetchByCategoryId.pending,(state)=>{
+            state.status="categoryloading";
+        })    
+                .addCase(fetchByCategoryId.fulfilled,(state,action)=>{
+                    state.category=action.payload;
+                    state.status="category fetched";
+                })
+                .addCase(fetchByCategoryId.rejected,(state,action)=>{
+                    state.error=action.payload;
+                });
     }
 })
 export default ProductSlice.reducer;

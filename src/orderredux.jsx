@@ -75,7 +75,7 @@ export const OrderRedux = () => {
     }
 
     const options = {
-      key: "rzp_test_kSV9WHQQjaz9KF", // Razorpay test key
+      key: "rzp_test_bFxRHTYHAmMqLK", // Razorpay test key
       amount: total * 100,
       currency: "INR",
       name: "Petcy",
@@ -89,6 +89,8 @@ export const OrderRedux = () => {
         toast.success("Payment successful!");
         console.log(userDetails)
         dispatch(placeOrder(userDetails))
+        nav("/order")
+
       },
     };
 

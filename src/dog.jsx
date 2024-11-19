@@ -1,34 +1,59 @@
-// import { useContext } from "react"
+import { useEffect } from "react";
+import { Footer } from "./footer"
+import { Navbar } from "./navbar"
+import { useDispatch, useSelector } from "react-redux"
+import { fetchByCategoryId } from "./Slices/ProductSlice";
+import { addToCart } from "./Slices/CartSlice";
 
-// import { globlValue } from "./context"
-// import { Navbar } from "./Navbar"
-// import { Footer } from "./footer"
+export const Dogs = () => {
+const {category}=useSelector(state=>state.product);
+const dispatch=useDispatch();
+useEffect(()=>
+{
+    dispatch(fetchByCategoryId({CategoryId: 2, pageno: 1, pagesize: 2}))
+},[dispatch]);
+const cartmng=(id)=>{
+    dispatch(addToCart(id));
+    navigate("/cart");
+  }
+  const goNext=()=>{
+    dispatch(fetchByCategoryId({CategoryId: 2, pageno: 2, pagesize: 2}))
+  }
 
-// export const Dogs = () => {
-//     const { dog, addtoCrt } = useContext(globlValue)
-//     return (
-//         <>
-//             <Navbar />
-//             <section className="d-flex overflow-auto flex-nowrap" id="products">
+    return (
+        <>
+        <Navbar />
+        <section className="product-section py-5">
+          <h1 className="text-center text-gradient mb-5">Explore Dog Products</h1>
+          <div className="d-flex justify-content-center flex-wrap gap-4">
+            {category.map((product, ind) => (
+              <div key={ind} className="card product-card">
+                <img
+                  src={product.image}
+                  className="product-image"
+                  alt={product.productName}
+                />
+                <h4 className="product-title">{product.productName}</h4>
+                <p className="product-price">Rs-{product.price}</p>
+                <button
+                  className="btn btn-custom"
+                  onClick={() => cartmng(product.productId)}
+                >
+                  Add to Cart
+                </button>
+              </div>
+            ))}
+          </div>
+        </section>
+        <div className="text-center my-4">
+          <button className="btn btn-next" onClick={goNext}>
+            Next
+          </button>
+        </div>
+        <section className="pt-5 bg-dark">
+          <Footer />
+        </section>
+      </>
 
-//                 {dog.map((user) => (
-//                     <div key={user.id} className="card col-md-3 col-6 m-3" id="products1" >
-
-//                         <img src={user.imgSrc} className="col-12 card" />
-//                         <h4>{user.title}</h4>
-//                         <p>Rs-{user.price}</p>
-//                         <button className="btn btn-dark btnn" onClick={() => addtoCrt(user)}>Add to cart</button>
-
-//                     </div>
-//                 )
-//                 )}
-
-//             </section>
-//             <section className=" pt-5 bg-dark">
-//         <Footer/>
-//         </section>
-
-//         </>
-
-//     )
-// }
+    )
+}

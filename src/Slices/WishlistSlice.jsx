@@ -17,7 +17,7 @@ export const addWishlist = createAsyncThunk("WishlistSlice/addWishlist", async (
     return response.data
 });
 export const deleteWishlist = createAsyncThunk("deleteWishlist/WishlistSlice", async (productid, { dispatch }) => {
-    const response = await apiClient.delete(`https://localhost:7282/api/Wishlist/RemoveWishlist/${productid}`);
+    const response = await apiClient.delete(`https://localhost:7282/api/Wishlist/RemoveWishlist${productid}`);
     dispatch(getWishlist());
     return response.data;
 });

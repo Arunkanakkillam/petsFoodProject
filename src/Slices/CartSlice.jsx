@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import apiClient from "../axiosinstance/AxiosApiclient"
-import axios from "axios";
+
 
 const initialState={
     status:"idle",
@@ -17,7 +17,6 @@ const initialState={
 //     });
 //     return response.data;
 // });
-
 
 export const getCart=createAsyncThunk("cartSlice/getCArt",async()=>{
     const response =await apiClient.get("https://localhost:7282/api/Cart/cartitems");

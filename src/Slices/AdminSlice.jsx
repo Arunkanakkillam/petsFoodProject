@@ -11,11 +11,21 @@ export const fetchUsers = createAsyncThunk("AdminSlice/fetchUsers", async () => 
     const response = await apiClient.get("https://localhost:7282/api/Customer/customers");
     return response.data;
 });
-export const BlockandUnblock = createAsyncThunk("AdminSlice/BlockandUnblock", async (mailid, { dispatch }) => {
-    const response = await apiClient.put("https://localhost:7282/api/Customer/block-Customer", mailid);
-    dispatch(fetchUsers());
-    return response.data;
-});
+export const BlockandUnblock = createAsyncThunk(
+    "AdminSlice/BlockandUnblock",
+    async (mailid, { dispatch }) => {
+      const response = await apiClient.put("https://localhost:7282/api/Customer/block-Customer",JSON.stringify(mailid), 
+        {
+          headers: {
+            "Content-Type": "application/json", 
+          },
+        }
+      );
+      dispatch(fetchUsers());
+      return response.data;
+    }
+  );
+  
 
 export const adminSlice = createSlice({
     name: "admin",
